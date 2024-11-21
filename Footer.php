@@ -13,12 +13,10 @@
                 margin-bottom: 12px;
               " />
                 <p>
-                    DENTOMED PUBLICATION HOUSE (INDIA SECTION)<br />[A UNIT OF
-                    DENTOMED SCIENTIFIC PUBLISHING AND MEDIA GROUP]
                 </p>
                 <p>
-                    <i class="fas fa-home"></i> DPH House, 10 GGS Nagar, Majitha Road,
-                    Amritsar-143001, Punjab, India.
+                    <i class="fas fa-home"></i>7895+7GR, Bhopal-Indore Highway Bhainsakhedi, Bairagarh, Bhopal,
+                    Madhya Pradesh 462030
                 </p>
                 <p>
                     <i class="fas fa-phone-alt"></i> +91-8708299825, +91-9752747384
@@ -49,10 +47,9 @@
             <div class="col-md-4 mb-4">
                 <h5 class="text-orange">Our Services</h5>
                 <p>
-                    DPH offers scientific literature, research, and book printing. We
-                    can transform your documents into e-book, printed normal
-                    paperback, and hardback books that would fit right in nestled on
-                    any bookshop shelf.
+                    We specialize in Book Publication, Thesis Publication, research paper writing, case report
+                    preparation, indexed journal publication, synopsis and thesis writing, statistical analysis,
+                    plagiarism checks, book writing, and comprehensive research guidance.
                 </p>
             </div>
         </div>

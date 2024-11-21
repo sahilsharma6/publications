@@ -41,6 +41,6 @@
         transform: rotate(360deg);
     } */
 </style>
-<a href="https://wa.me/+918708299825" target="_blank" id="whatsapp-icon">
+<a href="https://wa.me/+919752747384" target="_blank" id="whatsapp-icon">
     <img src="uploads/assets/WhatsApp.svg" alt="WhatsApp" />
 </a>

@@ -43,6 +43,8 @@ $images = $imagesQuery->fetch_all(MYSQLI_ASSOC);
             <div class="alert alert-warning text-center">No publishing images available.</div>
         <?php endif; ?>
     </div>
+    <?php include 'Footer.php'; ?>
+    <?php include 'utils/whatsapp-icon.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

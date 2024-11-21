@@ -67,7 +67,7 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
             </div> -->
             <div>
                 <!-- Call us Button -->
-                <a href="tel:+918708299825," class="btn btn-primary">Call Us</a>
+                <a href="tel:+919752747384," class="btn btn-primary">Call Us</a>
             </div>
 
             <script>

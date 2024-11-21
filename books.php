@@ -28,9 +28,13 @@ $heroH2 = "Books";
         <button id="load-more-btn" class="btn btn-primary mt-4 d-block mx-auto">Load More</button>
     </div>
 
+
+    <?php include 'Footer.php'; ?>
+    <?php include 'utils/whatsapp-icon.php'; ?>
+
     <script>
         let allBooks = []; // Array to hold all books fetched from server
-        let booksToShow = 9; // Number of books to show at a time
+        let booksToShow = 6; // Number of books to show at a time
         let currentIndex = 0; // Track how many books have been displayed
 
         // Function to display books in batches

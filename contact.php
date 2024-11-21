@@ -5,6 +5,12 @@ session_start();
 $heroH2 = "Contact Us";
 
 // Fetch contact information from the database (optional)
+
+$contactInfo = [
+    'address' => '7895+7GR, Bhopal-Indore Highway Bhainsakhedi, Bairagarh, Bhopal, Madhya Pradesh 462030',
+    'phone' => ' +91-8708299825, +91-9752747384',
+    'email' => 'info@professionalpublicationservice.com'
+];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,6 +53,9 @@ $heroH2 = "Contact Us";
 
 
     </div>
+    <?php include 'Footer.php'; ?>
+    <?php include 'utils/whatsapp-icon.php'; ?>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

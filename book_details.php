@@ -10,7 +10,7 @@ if (!$book_id) {
 }
 
 // Fetch book details from the database
-$stmt = $conn->prepare("SELECT b.title, b.authors, b.price, b.publishers, b.category_id, b.description, c.name AS category_name, b.img AS book_image
+$stmt = $conn->prepare("SELECT b.title, b.authors, b.price, b.publishers,b.isbn, b.category_id, b.description, c.name AS category_name, b.img AS book_image
                         FROM books_data b
                         JOIN categories c ON b.category_id = c.id
                         WHERE b.id = ?");
@@ -32,7 +32,7 @@ $images_result = $stmt->get_result();
 $images = $images_result->fetch_all(MYSQLI_ASSOC);
 
 // Define the phone number for WhatsApp (use the phone number in international format without + or spaces)
-$whatsapp_number = '6239001129'; // Change this to your business or personal WhatsApp number
+$whatsapp_number = '+919752747384'; // Change this to your business or personal WhatsApp number
 
 // Create the WhatsApp message with book details
 $message = "Hi, I'm interested in buying the book: " . $book['title'] . "\n\n";
@@ -67,7 +67,7 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=$encoded_message";
 
     <?php include 'Header.php'; ?>
 
-    <div class="container my-5">
+    <div class="container " style="margin-top: 100px;">
         <h2 class="text-center mb-4"><?php echo $book['title']; ?></h2>
         <div class="row">
             <!-- Book details -->
@@ -77,9 +77,12 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=$encoded_message";
             </div>
             <div class="col-md-6 mt-2">
                 <p><strong>Author:</strong> <?php echo $book['authors']; ?></p>
-                <p><strong>Price:</strong> $<?php echo $book['price']; ?></p>
+                <p><strong>Price:</strong> ₹
+                    <?php echo $book['price']; ?>
+                </p>
                 <p><strong>Publisher:</strong> <?php echo $book['publishers']; ?></p>
-                <p><strong>Category:</strong> <?php echo $book['category_name']; ?></p>
+                <p><strong>ISBN:</strong> <?php echo $book['isbn']; ?></p>
+
                 <p><strong>Description:</strong> <?php echo $book['description']; ?></p>
                 <!-- WhatsApp Button -->
                 <a href="<?php echo $whatsapp_url; ?>" class="btn btn-primary mt-4" target="_blank">
@@ -89,7 +92,7 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=$encoded_message";
         </div>
 
         <div class="mt-5">
-            <h3>Additional Images</h3>
+            <h3> Images</h3>
             <div class="row">
                 <?php foreach ($images as $image): ?>
                     <div class="col-md-4 mb-4">
@@ -100,6 +103,9 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=$encoded_message";
             </div>
         </div>
     </div>
+    <?php include 'Footer.php'; ?>
+    <?php include 'utils/whatsapp-icon.php'; ?>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
