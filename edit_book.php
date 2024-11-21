@@ -102,10 +102,17 @@ $categories_result = $conn->query("SELECT * FROM categories"); // Assuming 'cate
                     value="<?php echo $book['publishers']; ?>" required>
             </div>
 
+            <div class="mb-3">
+                <label for="isbn" class="form-label">Isbn</label>
+                <input type="text" class="form-control" id="isbn" name="isbn" value="<?php echo $book['isbn']; ?>"
+                    required>
+            </div>
+
             <!-- Current Book Image -->
             <div class="mb-3">
                 <label for="img" class="form-label">Current Book Image</label><br>
-                <img id="imgPreview" src="<?php echo $book['img']; ?>" alt="Current Book Image">
+                <img id="imgPreview" src="<?php echo $book['img']; ?>" alt="Current Book Image" height="10"
+                    style="border-radius: 4px; height: 60px;">
             </div>
 
             <!-- New Book Image Upload -->

@@ -45,6 +45,37 @@
                     <li><a class="link_name" href="#">Add Book</a></li>
                     <li><a href="AllBooks.php">Books</a></li>
                     <li><a href="AddBooks.php">Add Books</a></li>
+                    <li><a href="add_book_images.php">Add Book Images</a></li>
+                    <li><a href="manage_book_images.php">Manage Book Images</a></li>
+
+                </ul>
+
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-book-alt'></i>
+                        <span class="link_name">Publishings</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Publishings</a></li>
+                    <li><a href="add_publishing.php">Add Publishing</a></li>
+
+                </ul>
+
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-cog'></i>
+                        <span class="link_name">Logo </span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'>Logo</i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="add_logo.php">Add Logo</a></li>
                 </ul>
             </li>
 

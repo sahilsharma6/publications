@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $authors = $_POST['authors'];
     $price = $_POST['price'];
     $publishers = $_POST['publishers'];
+    $isbn = $_POST['isbn'];
     $category_id = $_POST['category_id'];
     $description = $_POST['description'];
     $imagePath = ''; // Initialize an empty image path variable
@@ -45,14 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
 
     // If an image path is set, update the image field in the database
     if ($imagePath) {
-        $query = "UPDATE books_data SET name=?, title=?, authors=?, price=?, publishers=?, category_id=?, description=?, img=? WHERE id=?";
+        $query = "UPDATE books_data SET name=?, title=?, authors=?, price=?, publishers=?, isbn=?, category_id=?, description=?, img=? WHERE id=?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ssssssssi", $name, $title, $authors, $price, $publishers, $category_id, $description, $imagePath, $bookId);
+        $stmt->bind_param("sssssssssi", $name, $title, $authors, $price, $publishers, $isbn, $category_id, $description, $imagePath, $bookId);
     } else {
         // Update without changing the image if no new image is uploaded
-        $query = "UPDATE books_data SET name=?, title=?, authors=?, price=?, publishers=?, category_id=?, description=? WHERE id=?";
+        $query = "UPDATE books_data SET name=?, title=?, authors=?, price=?, publishers=?,isbn=?, category_id=?, description=? WHERE id=?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("sssssssi", $name, $title, $authors, $price, $publishers, $category_id, $description, $bookId);
+        $stmt->bind_param("ssssssssi", $name, $title, $authors, $price, $publishers, $isbn, $category_id, $description, $bookId);
     }
 
     // Execute the query and check for success

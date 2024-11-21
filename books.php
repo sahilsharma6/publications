@@ -45,9 +45,10 @@ $heroH2 = "Books";
                 const bookCard = document.createElement('div');
                 bookCard.classList.add('col-md-4', 'mb-4');
                 bookCard.innerHTML = `
+                <a href="book_details.php?id=${book.id} style="text-decoration: none; color: black">
                     <div class="card">
                         <img src="${book.img}" class="card-img-top" height="400" alt="${book.title}">
-                        <div class="card-body">
+                        <div class="card-body " style="color: black">
                             <h5 class="card-title">${book.title}</h5>
                             <p class="card-text"><strong>Author:</strong> ${book.authors}</p>
                             <p class="card-text"><strong>Price:</strong> $${book.price}</p>
@@ -56,6 +57,7 @@ $heroH2 = "Books";
                             <p class="card-text">${book.description}</p>
                         </div>
                     </div>
+                </a>
                 `;
                 booksList.appendChild(bookCard);
             }

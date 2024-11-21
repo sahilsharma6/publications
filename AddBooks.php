@@ -68,6 +68,12 @@ $categories_result = $conn->query($categories_query);
             </div>
 
             <div class="mb-3">
+                <label for="isbn" class="form-label">Isbn No</label>
+                <input type="text" class="form-control" id="isbn" name="isbn" required>
+
+            </div>
+
+            <div class="mb-3">
                 <label for="category_id" class="form-label">Category</label>
                 <select class="form-select" id="category_id" name="category_id" required>
                     <?php while ($category = $categories_result->fetch_assoc()) { ?>
@@ -75,6 +81,8 @@ $categories_result = $conn->query($categories_query);
                     <?php } ?>
                 </select>
             </div>
+
+
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
