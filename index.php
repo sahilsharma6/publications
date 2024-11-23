@@ -269,8 +269,8 @@ $conn->close();
                 const bookCard = `
                 <a href="book_details.php?id=${book.id}">
               <div class="book-card mx-2 border">
-                <div class="mx-auto p  d-flex align-items-center justify-content-center " style="height: 250px; max-width: 800px">
-                    <img src="${book.img}"  style="height: 220px; width: 100%; max-width: 850px" class="border p-1" alt="${book.title}" />
+                <div class="mx-auto p  d-flex align-items-center justify-content- " style="height: 250px; max-width: 250px">
+                    <img src="${book.img}"  style="height: 220px; width: 100%; max-width: 250px" class="border p-1" alt="${book.title}" />
                 </div>
                 <div>
                     <h4>${book.name}</h4>
