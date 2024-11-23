@@ -16,11 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data
     $name = $_POST['name'] ?? null;
     $title = $_POST['title'];
-    $authors = $_POST['authors'];
-    $price = $_POST['price'];
-    $publishers = $_POST['publishers'];
-    $length = $_POST['length'];
-    $subjects = $_POST['subjects'];
+    $authors = $_POST['authors'] ?? null;
+    $price = $_POST['price'] ?? null;
+    $publishers = $_POST['publishers'] ?? null;
+    $length = $_POST['length'] ?? null;
+    $subjects = $_POST['subjects'] ?? null;
     $isbn = $_POST['isbn'];
     $category_id = $_POST['category_id'];
     // $description = $_POST['description'] ?: null;
