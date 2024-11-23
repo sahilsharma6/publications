@@ -24,6 +24,7 @@ $conn->close();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Founded in 2020, Professional Publication Services has rapidly established itself as a trusted provider in the academic and scientific writing industry." />
+  <link rel="icon" type="image/png" href="uploads/logos/logo.png">
 
   <title>Professional Publication Service</title>
 
