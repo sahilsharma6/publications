@@ -39,7 +39,6 @@ $result = mysqli_query($conn, $query);
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Title</th>
                     <th>Author</th>
                     <th>Price</th>
@@ -54,7 +53,6 @@ $result = mysqli_query($conn, $query);
             <tbody>
                 <?php while ($book = mysqli_fetch_assoc($result)) { ?>
                     <tr>
-                        <td><?php echo $book['id']; ?></td>
                         <td><?php echo $book['title']; ?></td>
                         <td><?php echo $book['authors']; ?></td>
                         <td><?php echo $book['price']; ?></td>

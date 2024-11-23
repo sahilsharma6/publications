@@ -22,7 +22,10 @@ $conn->close();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title></title>
+  <meta name="description"
+    content="Founded in 2020, Professional Publication Services has rapidly established itself as a trusted provider in the academic and scientific writing industry." />
+
+  <title>Professional Publication Service</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
 
