@@ -53,6 +53,11 @@ $categories_result = $conn->query($categories_query);
             </div>
 
             <div class="mb-3">
+                <label for="contributors" class="form-label">Contributors/Chapter Authors</label>
+                <input type="text" class="form-control" id="contributors" name="contributors">
+            </div>
+
+            <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
                 <input type="text" class="form-control" id="price" name="price">
             </div>

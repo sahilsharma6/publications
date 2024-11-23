@@ -41,11 +41,14 @@ $result = mysqli_query($conn, $query);
                 <tr>
                     <th>Title</th>
                     <th>Author</th>
+                    <th>Contributors</th>
                     <th>Price</th>
                     <th>Publisher</th>
                     <th>Category</th>
                     <th>Image</th>
                     <th>ISBN</th>
+                    <th>Length</th>
+                    <th>Subjects</th>
                     <th>Description</th>
                     <th>Actions</th>
                 </tr>
@@ -55,11 +58,14 @@ $result = mysqli_query($conn, $query);
                     <tr>
                         <td><?php echo $book['title']; ?></td>
                         <td><?php echo $book['authors']; ?></td>
+                        <td><?php echo $book['contributors']; ?></td>
                         <td><?php echo $book['price']; ?></td>
                         <td><?php echo $book['publishers']; ?></td>
                         <td><?php echo $book['category_name']; ?></td>
                         <td><img src="<?php echo $book['img']; ?>" width="50" alt="Book Image"></td>
                         <td><?php echo $book['isbn']; ?></td>
+                        <td><?php echo $book['length']; ?></td>
+                        <td><?php echo $book['subjects']; ?></td>
                         <td><?php echo substr($book['description'], 0, 50) . '...'; ?></td>
                         <td>
                             <a href="edit_book.php?id=<?php echo $book['id']; ?>" class="btn btn-warning btn-sm">Edit</a>

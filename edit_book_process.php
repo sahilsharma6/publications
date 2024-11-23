@@ -17,6 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $price = $_POST['price'];
     $publishers = $_POST['publishers'];
     $isbn = $_POST['isbn'];
+    $length = $_POST['length'];
+    $subjects = $_POST['subjects'];
+    $contributors = $_POST['contributors'];
     $category_id = $_POST['category_id'];
     $description = $_POST['description'];
     $imagePath = ''; // Initialize an empty image path variable
@@ -46,14 +49,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
 
     // If an image path is set, update the image field in the database
     if ($imagePath) {
-        $query = "UPDATE books_data SET name=?, title=?, authors=?, price=?, publishers=?, isbn=?, category_id=?, description=?, img=? WHERE id=?";
+        $query = "UPDATE books_data SET name=?, title=?, authors=?, price=?, publishers=?, isbn=?, length=?, subjects=?, contributors=?, category_id=?, description=?, img=? WHERE id=?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("sssssssssi", $name, $title, $authors, $price, $publishers, $isbn, $category_id, $description, $imagePath, $bookId);
+        $stmt->bind_param("ssssssssssi", $name, $title, $authors, $price, $publishers, $isbn, $length, $subjects, $contributors, $category_id, $description, $imagePath, $bookId);
     } else {
         // Update without changing the image if no new image is uploaded
-        $query = "UPDATE books_data SET name=?, title=?, authors=?, price=?, publishers=?,isbn=?, category_id=?, description=? WHERE id=?";
+        $query = "UPDATE books_data SET name=?, title=?, authors=?, price=?, publishers=?,isbn=?, length=?, subjects=?, contributors=?, category_id=?, description=? WHERE id=?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ssssssssi", $name, $title, $authors, $price, $publishers, $isbn, $category_id, $description, $bookId);
+        $stmt->bind_param("sssssssssssi", $name, $title, $authors, $price, $publishers, $isbn, $length, $subjects, $contributors, $category_id, $description, $bookId);
     }
 
     // Execute the query and check for success

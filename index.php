@@ -278,7 +278,7 @@ $conn->close();
                 </div>
                 <div>
                     <h4>${book.name}</h4>
-                    <p>${book.description}</p>
+                    <p>${book.description ?? ""}</p>
                     <p class="price">RS ${book.price}</p>
                 </div>
               </div>

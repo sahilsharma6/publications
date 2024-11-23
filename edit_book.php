@@ -68,17 +68,15 @@ $categories_result = $conn->query("SELECT * FROM categories"); // Assuming 'cate
             <input type="hidden" name="id" value="<?php echo $book['id']; ?>">
 
             <!-- Book Name -->
-            <div class="mb-3">
+            <div class="mb-3 d-none">
                 <label for="name" class="form-label">Book Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="<?php echo $book['name']; ?>"
-                    required>
+                <input type="text" class="form-control" id="name" name="name" value="<?php echo $book['name']; ?>">
             </div>
 
             <!-- Book Title -->
             <div class="mb-3">
                 <label for="title" class="form-label">Book Title</label>
-                <input type="text" class="form-control" id="title" name="title" value="<?php echo $book['title']; ?>"
-                    required>
+                <input type="text" class="form-control" id="title" name="title" value="<?php echo $book['title']; ?>">
             </div>
 
             <!-- Authors -->
@@ -88,18 +86,22 @@ $categories_result = $conn->query("SELECT * FROM categories"); // Assuming 'cate
                     value="<?php echo $book['authors']; ?>" required>
             </div>
 
+            <div class="mb-3">
+                <label for="contributors" class="form-label">Contributors/Chapter Authors</label>
+                <input type="text" class="form-control" id="contributors" name="contributors"
+                    value="<?php echo $book['contributors']; ?>">
+            </div>
             <!-- Price -->
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
-                <input type="text" class="form-control" id="price" name="price" value="<?php echo $book['price']; ?>"
-                    required>
+                <input type="text" class="form-control" id="price" name="price" value="<?php echo $book['price']; ?>">
             </div>
 
             <!-- Publishers -->
             <div class="mb-3">
                 <label for="publishers" class="form-label">Publishers</label>
                 <input type="text" class="form-control" id="publishers" name="publishers"
-                    value="<?php echo $book['publishers']; ?>" required>
+                    value="<?php echo $book['publishers']; ?>">
             </div>
 
             <div class="mb-3">
@@ -107,7 +109,18 @@ $categories_result = $conn->query("SELECT * FROM categories"); // Assuming 'cate
                 <input type="text" class="form-control" id="isbn" name="isbn" value="<?php echo $book['isbn']; ?>"
                     required>
             </div>
+            <div class="mb-3">
+                <label for="length" class="form-label">Length </label>
+                <input type="text" class="form-control" id="length" name="length"
+                    value="<?php echo $book['length']; ?>">
 
+            </div>
+            <div class="mb-3">
+                <label for="subjects" class="form-label">Subjects</label>
+                <input type="text" class="form-control" id="subjects" name="subjects"
+                    value="<?php echo $book['subjects']; ?>">
+
+            </div>
             <!-- Current Book Image -->
             <div class="mb-3">
                 <label for="img" class="form-label">Current Book Image</label><br>

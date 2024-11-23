@@ -20,6 +20,10 @@ $sql = "
         b.authors, 
         b.price, 
         b.publishers, 
+        b.isbn, 
+        b.length,
+        b.subjects,
+        b.contributors,
         b.img, 
         b.description, 
         c.name AS category_name,  -- Fetch category name instead of ID

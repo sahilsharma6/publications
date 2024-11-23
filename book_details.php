@@ -10,7 +10,7 @@ if (!$book_id) {
 }
 
 // Fetch book details from the database
-$stmt = $conn->prepare("SELECT b.title, b.authors, b.price, b.publishers,b.isbn, b.length, b.subjects, b.category_id, b.description, c.name AS category_name, b.img AS book_image
+$stmt = $conn->prepare("SELECT b.title, b.authors, b.price, b.publishers,b.isbn, b.length, b.subjects, b.contributors, b.category_id, b.description, c.name AS category_name, b.img AS book_image
                         FROM books_data b
                         JOIN categories c ON b.category_id = c.id
                         WHERE b.id = ?");
@@ -78,6 +78,7 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=$encoded_message";
             </div>
             <div class="col-md-6 mt-2">
                 <p><strong>Author:</strong> <?php echo $book['authors']; ?></p>
+                <p><strong>Contributors/Chapter Authors:</strong> <?php echo $book['contributors']; ?></p>
 
                 <p><strong>Publisher:</strong> <?php echo $book['publishers']; ?></p>
                 <p><strong>ISBN:</strong> <?php echo $book['isbn']; ?></p>

@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $publishers = $_POST['publishers'] ?? null;
     $length = $_POST['length'] ?? null;
     $subjects = $_POST['subjects'] ?? null;
+    $contributors = $_POST['contributors'] ?? null;
     $isbn = $_POST['isbn'];
     $category_id = $_POST['category_id'];
     // $description = $_POST['description'] ?: null;
@@ -36,8 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Prepare SQL query to insert the book
 // Prepare SQL query to insert the book
-    $stmt = $conn->prepare("INSERT INTO books_data (name, title, authors, price, publishers, img, isbn, length, subjects, description, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssssssi", $name, $title, $authors, $price, $publishers, $img, $isbn, $length, $subjects, $description, $category_id);
+    $stmt = $conn->prepare("INSERT INTO books_data (name, title, authors, price, publishers, img, isbn, length, subjects, contributors, description, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ? , ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssssssi", $name, $title, $authors, $price, $publishers, $img, $isbn, $length, $subjects, $contributors, $description, $category_id);
 
     if ($stmt->execute()) {
         // Redirect to dashboard with success message

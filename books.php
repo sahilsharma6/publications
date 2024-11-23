@@ -55,10 +55,8 @@ $heroH2 = "Books";
                         <div class="card-body " style="color: black">
                             <h5 class="card-title">${book.title}</h5>
                             <p class="card-text"><strong>Author:</strong> ${book.authors}</p>
-                            <p class="card-text"><strong>Price:</strong> ₹${book.price}</p>
                             <p class="card-text"><strong>Publisher:</strong> ${book.publishers}</p>
-                            <p class="card-text"><strong>Category:</strong> ${book.category_name}</p>
-                            <p class="card-text">${book.description}</p>
+                            <p class="card-text"><strong>isbn:</strong> ${book.isbn}</p>
                         </div>
                     </div>
                 </a>
