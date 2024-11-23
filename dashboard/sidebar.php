@@ -70,14 +70,20 @@
                 <div class="iocn-link">
                     <a href="#">
                         <i class='bx bx-cog'></i>
-                        <span class="link_name">Logo </span>
+                        <span class="link_name">Settings</span>
                     </a>
-                    <i class='bx bxs-chevron-down arrow'>Logo</i>
+                    <i class='bx bxs-chevron-down arrow'></i>
                 </div>
                 <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Settings</a></li>
                     <li><a href="add_logo.php">Add Logo</a></li>
+                    <li><a href="change_password.php">Change Password</a></li>
+
+
                 </ul>
+
             </li>
+
 
             <!-- <li> -->
             <?php

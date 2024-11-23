@@ -37,10 +37,10 @@ $categories_result = $conn->query($categories_query);
 
         <!-- Add Book Form -->
         <form action="add_book_process.php" method="POST" enctype="multipart/form-data" class="mt-4">
-            <div class="mb-3">
+            <!-- <div class="mb-3" hidden>
                 <label for="name" class="form-label">Book Name</label>
                 <input type="text" class="form-control" id="name" name="name" required>
-            </div>
+            </div> -->
 
             <div class="mb-3">
                 <label for="title" class="form-label">Book Title</label>
@@ -49,17 +49,17 @@ $categories_result = $conn->query($categories_query);
 
             <div class="mb-3">
                 <label for="authors" class="form-label">Authors</label>
-                <input type="text" class="form-control" id="authors" name="authors" required>
+                <input type="text" class="form-control" id="authors" name="authors">
             </div>
 
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
-                <input type="text" class="form-control" id="price" name="price" required>
+                <input type="text" class="form-control" id="price" name="price">
             </div>
 
             <div class="mb-3">
                 <label for="publishers" class="form-label">Publishers</label>
-                <input type="text" class="form-control" id="publishers" name="publishers" required>
+                <input type="text" class="form-control" id="publishers" name="publishers">
             </div>
 
             <div class="mb-3">
@@ -73,6 +73,16 @@ $categories_result = $conn->query($categories_query);
 
             </div>
 
+            <div class="mb-3">
+                <label for="length" class="form-label">Length </label>
+                <input type="text" class="form-control" id="length" name="length">
+
+            </div>
+            <div class="mb-3">
+                <label for="subjects" class="form-label">Subjects</label>
+                <input type="text" class="form-control" id="subjects" name="subjects">
+
+            </div>
             <div class="mb-3">
                 <label for="category_id" class="form-label">Category</label>
                 <select class="form-select" id="category_id" name="category_id" required>

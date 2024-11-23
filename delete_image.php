@@ -31,7 +31,7 @@ if ($image_id) {
     }
 
     // Redirect to the manage images page
-    header("Location: manage_images.php");
+    header("Location: manage_book_images.php");
     exit();
 } else {
     echo "Invalid image ID.";

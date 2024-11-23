@@ -2,7 +2,7 @@
 include 'db.php';
 session_start();
 
-$heroH2 = "Publishings";
+$heroH2 = "Journals";
 
 // Fetch all publishing images from the database
 $imagesQuery = $conn->query("SELECT * FROM publishing_images");
@@ -24,7 +24,7 @@ $images = $imagesQuery->fetch_all(MYSQLI_ASSOC);
     <?php include 'Header.php'; ?>
     <?php include './utils/custom_hero.php'; ?>
     <div class="container mt-5">
-        <h2 class="text-center mb-4"><?php echo $heroH2; ?></h2>
+        <h2 class="text-center mb-4"> Journal Publication Support</h2>
 
         <!-- Check if there are images to display -->
         <?php if (count($images) > 0): ?>
@@ -32,7 +32,7 @@ $images = $imagesQuery->fetch_all(MYSQLI_ASSOC);
                 <?php foreach ($images as $image): ?>
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <img src="<?php echo $image['image_path']; ?> " style="height: 500px; width: 100%;"
+                            <img src="<?php echo $image['image_path']; ?> " style="height: 210px; width: 100%;"
                                 class="card-img-top" alt="Publishing Image">
 
                         </div>

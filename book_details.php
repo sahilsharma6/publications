@@ -10,7 +10,7 @@ if (!$book_id) {
 }
 
 // Fetch book details from the database
-$stmt = $conn->prepare("SELECT b.title, b.authors, b.price, b.publishers,b.isbn, b.category_id, b.description, c.name AS category_name, b.img AS book_image
+$stmt = $conn->prepare("SELECT b.title, b.authors, b.price, b.publishers,b.isbn, b.length, b.subjects, b.category_id, b.description, c.name AS category_name, b.img AS book_image
                         FROM books_data b
                         JOIN categories c ON b.category_id = c.id
                         WHERE b.id = ?");
@@ -40,7 +40,8 @@ $message .= "Author: " . $book['authors'] . "\n";
 $message .= "Price: $" . $book['price'] . "\n";
 $message .= "Publisher: " . $book['publishers'] . "\n";
 $message .= "Category: " . $book['category_name'] . "\n";
-$message .= "Description: " . $book['description'] . "\n";
+$message .= "Length: " . $book['length'] . "\n";
+$message .= "Subjects: " . $book['subjects'] . "\n";
 $message .= "Please let me know more details.";
 
 // URL-encode the message to ensure it is properly formatted for a URL
@@ -77,11 +78,14 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=$encoded_message";
             </div>
             <div class="col-md-6 mt-2">
                 <p><strong>Author:</strong> <?php echo $book['authors']; ?></p>
+
+                <p><strong>Publisher:</strong> <?php echo $book['publishers']; ?></p>
+                <p><strong>ISBN:</strong> <?php echo $book['isbn']; ?></p>
                 <p><strong>Price:</strong> ₹
                     <?php echo $book['price']; ?>
                 </p>
-                <p><strong>Publisher:</strong> <?php echo $book['publishers']; ?></p>
-                <p><strong>ISBN:</strong> <?php echo $book['isbn']; ?></p>
+                <p><strong>Length:</strong> <?php echo $book['length']; ?></p>
+                <p><strong>Subjects:</strong> <?php echo $book['subjects']; ?></p>
 
                 <p><strong>Description:</strong> <?php echo $book['description']; ?></p>
                 <!-- WhatsApp Button -->

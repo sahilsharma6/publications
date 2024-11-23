@@ -99,7 +99,7 @@ $conn->close();
     data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="uploads/assets/hero1.jpg" alt="Tokyo" />
+        <img class="d-block w-100" src="uploads/assets/hero4.jpg" alt="Tokyo" />
         <!-- <div class="carousel-caption d-none d-md-block borde border-" style="margin-bottom: 100px">
           <h5>Tokyo (Japan)</h5>
           <p>
@@ -133,7 +133,7 @@ $conn->close();
           color: black;
           left: 2%;
           background: #000;
-          top: 35%;
+          top: 40%;
         ">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
@@ -146,7 +146,7 @@ $conn->close();
           color: black;
           right: 2%;
           background: #000;
-          top: 35%;
+          top: 40%;
         " type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
@@ -161,7 +161,7 @@ $conn->close();
 
   <div class="container my-5">
     <h2 class="text-center mb-4">
-      Best <span style="color: #ff8c00">Dental</span> Books
+      Best <span style="color: #ff8c00">Books</span>
     </h2>
 
     <!-- Generate the tabs dynamically -->

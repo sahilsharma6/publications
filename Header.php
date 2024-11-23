@@ -13,7 +13,8 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
 </div>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100 top-0 " style="z-index: 1000">
+<nav class="navbar navbar-expand-lg navbar-light  position-fixed w-100 top-0 "
+    style="z-index: 1000; background-color: #eef5ff">
     <div class="container">
         <a class="navbar-brand" href="./" style="height: 100px">
             <img src="uploads/logos/logo.png" alt="Logo" style="
@@ -31,21 +32,21 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
+            <ul class="navbar-nav mx-auto" style="">
                 <li class="nav-item">
-                    <a class="nav-link" href="./">Home</a>
+                    <a class="nav-link " href="./">Home</a>
                 </li>
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="books.php">Books</a>
+                    <a class="nav-link " href="books.php">Books</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="./#services-container">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Publishings.php">Publishings</a>
+                    <a class="nav-link" href="Publishings.php">Journals</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php">Contact</a>

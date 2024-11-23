@@ -14,11 +14,13 @@ include 'db.php';
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data
-    $name = $_POST['name'];
+    $name = $_POST['name'] ?? null;
     $title = $_POST['title'];
     $authors = $_POST['authors'];
     $price = $_POST['price'];
     $publishers = $_POST['publishers'];
+    $length = $_POST['length'];
+    $subjects = $_POST['subjects'];
     $isbn = $_POST['isbn'];
     $category_id = $_POST['category_id'];
     // $description = $_POST['description'] ?: null;
@@ -33,8 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Prepare SQL query to insert the book
-    $stmt = $conn->prepare("INSERT INTO books_data (name, title, authors, price, publishers, img,isbn, description, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)");
-    $stmt->bind_param("ssssssssi", $name, $title, $authors, $price, $publishers, $img, $isbn, $description, $category_id);
+// Prepare SQL query to insert the book
+    $stmt = $conn->prepare("INSERT INTO books_data (name, title, authors, price, publishers, img, isbn, length, subjects, description, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssssssi", $name, $title, $authors, $price, $publishers, $img, $isbn, $length, $subjects, $description, $category_id);
 
     if ($stmt->execute()) {
         // Redirect to dashboard with success message
@@ -42,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "Error: " . $stmt->error;
     }
+
 
     // Close the statement and connection
     $stmt->close();

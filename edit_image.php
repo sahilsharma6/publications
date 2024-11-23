@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt->execute();
 
                 // Redirect after successful update
-                header("Location: manage_images.php");
+                header("Location: manage_book_images.php");
                 exit();
             }
         }
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute();
 
         // Redirect after successful update
-        header("Location: manage_images.php");
+        header("Location: manage_book_images.php");
         exit();
     }
 }
@@ -97,17 +97,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Image</title>
+    <link rel="stylesheet" href="dashboard/sidebar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.1/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
+    <?php include 'dashboard/sidebar.php'; ?>
+
     <div class="container mt-5">
         <h2 class="text-center mb-4">Edit Image for Book</h2>
 
         <form action="edit_image.php?id=<?php echo $image_id; ?>" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
                 <label for="category" class="form-label">Select Category</label>
                 <select name="category_id" id="category" class="form-control" required>
                     <option value="">-- Select Category --</option>
@@ -119,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </select>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
                 <label for="book" class="form-label">Select Book</label>
                 <select name="book_id" id="book" class="form-control" required>
                     <option value="">-- Select Book --</option>
@@ -144,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn btn-primary">Update Image</button>
         </form>
 
-        <a href="manage_images.php" class="btn btn-secondary mt-3">Back to Manage Images</a>
+        <a href="manage_book_images.php" class="btn btn-secondary mt-3">Back to Manage Images</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
