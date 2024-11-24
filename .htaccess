@@ -5,5 +5,5 @@ RewriteEngine On
 # Redirect requests without .php extension to the .php file
 
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.\*)$ $1.php [L]
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]
