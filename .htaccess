@@ -1,0 +1,25 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Redirect requests without .php extension to the .php file
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# Security settings - protect .php files from being viewed
+<FilesMatch "\.php$">
+    # Disable the ability to view PHP files in the browser
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Custom error handling
+ErrorDocument 404 /error_pages/404.php
+ErrorDocument 500 /error_pages/500.php
+
+# Set default PHP version (if applicable)
+# You can specify a specific PHP version if your server supports it (optional)
+AddHandler application/x-httpd-php74 .php
+
+# Prevent directory listing
+Options -Indexes
