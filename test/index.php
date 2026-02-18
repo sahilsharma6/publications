@@ -155,11 +155,11 @@ $conn->close();
                                             <div class="book-card-modern h-100">
 
                                                 <div class="book-img-wrapper">
-                                                    <img src="../<?php echo $book['img']; ?>" alt="<?php echo $book['name']; ?>">
+                                                    <img src="../<?php echo $book['img']; ?>" alt="<?php echo $book['title']; ?>">
                                                 </div>
 
                                                 <div class="book-body">
-                                                    <h5><?php echo $book['name']; ?></h5>
+                                                    <h5><?php echo $book['title']; ?></h5>
                                                     <p class="price">₹ <?php echo $book['price']; ?></p>
                                                 </div>
 
@@ -269,7 +269,7 @@ $conn->close();
 <a href="book_details.php?id=${book.id}" class="text-decoration-none">
 <div class="book-card">
 <img src="${book.img}" class="img-fluid mb-3">
-<h5>${book.name}</h5>
+<h5>${book.title}</h5>
 <p class="price">RS ${book.price}</p>
 </div>
 </a>`;
