@@ -33,7 +33,7 @@ $conn->close();
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-modern">
+    <!-- <nav class="navbar navbar-expand-lg navbar-modern">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#"><img src="../uploads/logos/logotest.png" height="100" width="150"
                     alt=""></a>
@@ -50,7 +50,8 @@ $conn->close();
                 <a href="login.php" class="btn btn-primary-custom">Login</a>
             </div>
         </div>
-    </nav>
+    </nav> -->
+    <?php include 'header.php'; ?>
 
     <!-- HERO -->
     <section class="hero-carousel">

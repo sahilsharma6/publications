@@ -285,3 +285,114 @@ footer a {
     font-size: 1rem;
   }
 }
+
+/* ================= BOOK DETAIL PAGE ================= */
+
+.book-detail-container {
+  margin-top: 120px;
+  margin-bottom: 80px;
+}
+
+/* Main image */
+.book-main-image {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.book-main-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+}
+
+/* Gallery thumbnails */
+.gallery-thumb {
+  width: 100px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-thumb:hover {
+  transform: scale(1.05);
+}
+
+/* Info Card */
+.book-info-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.book-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.book-author {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.book-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Meta Grid */
+.book-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+  font-size: 0.95rem;
+}
+
+/* Description */
+.book-description h5 {
+  margin-bottom: 10px;
+}
+
+.book-description p {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Buy Button */
+.btn-buy {
+  background: #25d366;
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-buy:hover {
+  background: #1ebe5b;
+  color: #fff;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .book-main-image img {
+    height: 350px;
+  }
+
+  .book-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/*  */
