@@ -244,15 +244,7 @@ $conn->close();
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container text-center">
-            <h5>Professional Publication Services</h5>
-            <p>©
-                <?php echo date("Y"); ?> All Rights Reserved
-            </p>
-        </div>
-    </footer>
+    <?php include 'footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 

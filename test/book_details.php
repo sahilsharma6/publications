@@ -85,11 +85,13 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=$encoded_message";
                     <div class="book-gallery mt-4 d-flex gap-3 flex-wrap">
                         <?php foreach ($images as $image): ?>
                             <div class="gallery-thumb">
-                                <img src="../<?php echo $image['image_path']; ?>" alt="Image for <?php echo $book['title']; ?>">
+                                <img src="../<?php echo $image['image_path']; ?>" alt="Image"
+                                    onclick="openImageModal(this.src)">
                             </div>
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
+
 
             </div>
 
@@ -112,11 +114,20 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=$encoded_message";
                     </div>
 
                     <hr>
-
                     <div class="book-description">
                         <h5>Description</h5>
-                        <p><?php echo nl2br($book['description']); ?></p>
+
+                        <p id="descriptionText" class="clamp-text">
+                            <?php echo nl2br(htmlspecialchars($book['description'])); ?>
+                        </p>
+
+                        <button id="readMoreBtn" class="read-more-btn" onclick="toggleDescription()">
+                            Read More
+                        </button>
                     </div>
+
+
+
 
                     <a href="<?php echo $whatsapp_url; ?>" class="btn btn-buy mt-4" target="_blank">
                         <i class="fab fa-whatsapp me-2"></i> Buy via WhatsApp
@@ -130,12 +141,51 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=$encoded_message";
 
     </div>
 
-    <?php include '../Footer.php'; ?>
-    <?php include '../utils/whatsapp-icon.php'; ?>
+    <?php include 'footer.php'; ?>
+
+
+    <!-- Image Modal -->
+    <div class="modal fade " id="imageModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl ">
+
+            <i class="fas fa-times modal-close" data-bs-dismiss="modal"></i>
+
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-body text-center">
+                    <img id="modalImage" src="" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script>
+        function openImageModal(src) {
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = src;
+
+            const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+            imageModal.show();
+        }
+    </script>
+
+
+    <script>
+        function toggleDescription() {
+            const text = document.getElementById("descriptionText");
+            const btn = document.getElementById("readMoreBtn");
+
+            text.classList.toggle("expanded");
+
+            if (text.classList.contains("expanded")) {
+                btn.innerText = "Read Less";
+            } else {
+                btn.innerText = "Read More";
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -367,7 +367,12 @@ footer a {
 
 .book-description p {
   color: #555;
+
+  max-width: 600px;
   line-height: 1.7;
+  text-align: justify;
+
+  /* word-break: break-word; */
 }
 
 /* Buy Button */
@@ -395,4 +400,56 @@ footer a {
     grid-template-columns: 1fr;
   }
 }
+
+/* Description clamp */
+.clamp-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* change to 2 if you want */
+  overflow: hidden;
+}
+
+/* Expanded state */
+.clamp-text.expanded {
+  -webkit-line-clamp: unset;
+  /* overflow: visible; */
+}
+
+/* Read More button */
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #c2a83e;
+  font-weight: 600;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Modal  */
+
+.modal-content {
+  background: transparent;
+}
+
+.modal-body {
+  background: rgba(237, 231, 231, 0.85);
+  border-radius: 15px;
+}
+
+.modal-body img {
+  width: 100%;
+  height: 70vh;
+  object-fit: contain;
+}
+
+.modal-close {
+  position: absolute;
+  top: 45px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 10;
+}
+
 /*  */
