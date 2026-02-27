@@ -6,7 +6,7 @@ $message = '';
 
 // Already logged in → redirect
 if (isset($_SESSION['user_id'])) {
-    header("Location: dashboard.php");
+    header("Location: ./dashboard");
     exit();
 }
 
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $_SESSION['login_attempts'] = 0;
                     $_SESSION['lock_until'] = null;
 
-                    header("Location: ../dashboard.php");
+                    header("Location: ../test/dashboard");
                     exit();
 
                 } else {

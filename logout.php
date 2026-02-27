@@ -7,5 +7,5 @@ session_unset(); // Removes all session variables
 session_destroy(); // Destroys the session
 
 // Redirect the user to the login page
-header("Location: login.php");
+header("Location: test/login.php");
 exit();
