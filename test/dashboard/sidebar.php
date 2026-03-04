@@ -17,7 +17,14 @@ $currentPage = basename($_SERVER['PHP_SELF']);
  * Renders a single nav item (with optional sub-links)
  */
 
-$root_url = 'http://localhost/book/test/dashboard/';
+
+
+
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
+    || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+
+// $root_url = 'http://localhost/book/test/dashboard/';
+$root_url = $protocol . $_SERVER['HTTP_HOST'] . '/book/test/dashboard/';
 function navItem(string $icon, string $label, array $subLinks = [], string $currentPage = ''): void
 {
     $hasChildren = count($subLinks) > 1 || isset($subLinks[0]['label']);
@@ -83,7 +90,7 @@ function navItem(string $icon, string $label, array $subLinks = [], string $curr
 
         <li class="nav-section-label">Main</li>
 
-        <?php navItem('bx-grid-alt', 'Dashboard', [['href' => './']], $currentPage); ?>
+        <?php navItem('bx-grid-alt', 'Dashboard', [['href' => $root_url]], $currentPage); ?>
 
         <li class="nav-section-label">Catalog</li>
 

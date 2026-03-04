@@ -150,7 +150,7 @@ $conn->close();
                                     ?>
 
                                     <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <a href="book_details.php?id=<?php echo $book['id']; ?>" class="text-decoration-none">
+                                        <a href="bd.php?id=<?php echo $book['id']; ?>" class="text-decoration-none">
 
                                             <div class="book-card-modern h-100">
 
