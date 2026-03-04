@@ -153,7 +153,7 @@ function sortUrl(string $col): string
                 <span>Categories</span>
             </nav>
         </div>
-        <a href="AddCategories.php" class="btn-add">
+        <a href="AddCategory.php" class="btn-add">
             <i class='bx bx-plus'></i> Add Category
         </a>
     </div>

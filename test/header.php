@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-modern">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#"><img src="../uploads/logos/logotest.png" height="100" width="150"
+        <a class="navbar-brand fw-bold" href="./"><img src="../uploads/logos/logotest.png" height="100" width="150"
                 alt=""></a>
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
             <span class="navbar-toggler-icon"></span>

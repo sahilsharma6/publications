@@ -27,8 +27,8 @@ $stats = [
 ];
 
 $quickLinks = [
-    ['href' => 'AddBooks.php', 'label' => 'Add Book', 'icon' => 'bx-plus-circle'],
-    ['href' => 'AddCategories.php', 'label' => 'Add Category', 'icon' => 'bx-folder-plus'],
+    ['href' => 'AddBook.php', 'label' => 'Add Book', 'icon' => 'bx-plus-circle'],
+    ['href' => 'AddCategory.php', 'label' => 'Add Category', 'icon' => 'bx-folder-plus'],
     ['href' => 'add_publishing.php', 'label' => 'Add Publisher', 'icon' => 'bx-printer'],
     ['href' => 'AllBooks.php', 'label' => 'View Books', 'icon' => 'bx-list-ul'],
 ];

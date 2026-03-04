@@ -361,7 +361,7 @@ $conn->close();
                     <a href="../AllBooks.php" class="quick-link">
                         <i class='bx bx-book-alt'></i> View All Books
                     </a>
-                    <a href="../AddBooks.php" class="quick-link">
+                    <a href="../AddBook.php" class="quick-link">
                         <i class='bx bx-plus-circle'></i> Add New Book
                     </a>
                 </div>

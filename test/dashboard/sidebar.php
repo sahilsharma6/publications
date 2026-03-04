@@ -16,6 +16,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 /**
  * Renders a single nav item (with optional sub-links)
  */
+
+$root_url = 'http://localhost/book/test/dashboard/';
 function navItem(string $icon, string $label, array $subLinks = [], string $currentPage = ''): void
 {
     $hasChildren = count($subLinks) > 1 || isset($subLinks[0]['label']);
@@ -86,26 +88,31 @@ function navItem(string $icon, string $label, array $subLinks = [], string $curr
         <li class="nav-section-label">Catalog</li>
 
         <?php navItem('bx-collection', 'Categories', [
-            ['href' => 'AllCategories.php', 'label' => 'All Categories'],
-            ['href' => 'AddCategory.php', 'label' => 'Add Category'],
+            ['href' => $root_url . 'AllCategories.php', 'label' => 'All Categories'],
+            ['href' => $root_url . 'AddCategory.php', 'label' => 'Add Category'],
         ], $currentPage); ?>
 
         <?php navItem('bx-book-alt', 'Books', [
-            ['href' => 'AllBooks.php', 'label' => 'All Books'],
-            ['href' => 'AddBooks.php', 'label' => 'Add Book'],
-            ['href' => 'add_book_images.php', 'label' => 'Add Images'],
-            ['href' => 'manage_book_images.php', 'label' => 'Manage Images'],
+            ['href' => $root_url . 'AllBooks.php', 'label' => 'All Books'],
+            ['href' => $root_url . 'AddBook.php', 'label' => 'Add Book'],
+            ['href' => $root_url . 'add_book_images.php', 'label' => 'Add Images'],
+            ['href' => $root_url . 'manage_book_images.php', 'label' => 'Manage Images'],
+        ], $currentPage); ?>
+
+        <?php navItem('bx-user', 'Author', [
+            ['href' => $root_url . 'authors/AllAuthors.php', 'label' => 'All Authors'],
+            ['href' => $root_url . 'authors/AddAuthor.php', 'label' => 'Add Author'],
         ], $currentPage); ?>
 
         <?php navItem('bx-printer', 'Publishing', [
-            ['href' => 'add_publishing.php', 'label' => 'Add Publishing'],
+            ['href' => $root_url . 'add_publishing.php', 'label' => 'Add Publishing'],
         ], $currentPage); ?>
 
         <li class="nav-section-label">System</li>
 
         <?php navItem('bx-cog', 'Settings', [
-            ['href' => 'add_logo.php', 'label' => 'Add Logo'],
-            ['href' => 'change_password.php', 'label' => 'Change Password'],
+            ['href' => $root_url . 'add_logo.php', 'label' => 'Add Logo'],
+            ['href' => $root_url . 'change_password.php', 'label' => 'Change Password'],
         ], $currentPage); ?>
 
         <?php if ($role === 'SuperAdmin'): ?>
