@@ -1,24 +1,3 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-modern">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="./"><img src="../uploads/logos/logotest.png" height="100" width="150"
-                alt=""></a>
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navMenu">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="./books.php">Books</a></li>
-                <li class="nav-item"><a class="nav-link" href="./contact.php">Contact</a></li>
-            </ul>
-            <a href="login.php" class="btn btn-primary-custom">Login</a>
-        </div>
-    </div>
-</nav> -->
-
-
-
 <?php
 $currentPage = basename($_SERVER['PHP_SELF']);
 $isLoggedIn = isset($_SESSION['user_id']);
@@ -530,7 +509,7 @@ $userName = $_SESSION['username'] ?? 'Account';
                 <i class="fas fa-phone"></i>
             </a>
             <?php if ($isLoggedIn): ?>
-                <a href="<?= $isAdmin ? './dashboard' : 'profile.php' ?>" class="nav-icon-btn"
+                <a href="<?= $isAdmin ? './test/dashboard' : 'profile.php' ?>" class="nav-icon-btn"
                     title="<?= htmlspecialchars($userName) ?>">
                     <i class="fas fa-user-circle" style="font-size:20px; color:var(--accent2);"></i>
                 </a>

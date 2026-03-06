@@ -17,7 +17,6 @@
 
     <div class="container" style="position:relative; z-index:1;">
 
-        <!-- Top row -->
         <div class="row gy-4 mb-5">
 
             <!-- Brand col -->
@@ -95,7 +94,9 @@
                 foreach ($contacts as [$ico, $val]): ?>
                     <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:12px;">
                         <i class="<?= $ico ?>" style="font-size:13px; color:#c9920a; margin-top:2px; flex-shrink:0;"></i>
-                        <span style="font-size:14px; color:rgba(250,247,242,.5); line-height:1.5;"><?= $val ?></span>
+                        <span style="font-size:14px; color:rgba(250,247,242,.5); line-height:1.5;">
+                            <?= $val ?>
+                        </span>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -140,7 +141,8 @@
         <!-- Bottom bar -->
         <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
             <p style="font-size:13px; color:rgba(250,247,242,.3); margin:0;">
-                © <?= date('Y') ?> <span style="color:rgba(250,247,242,.5); font-weight:600;">Professional Publication
+                ©
+                <?= date('Y') ?> <span style="color:rgba(250,247,242,.5); font-weight:600;">Professional Publication
                     Services</span>. All rights reserved.
             </p>
             <div style="display:flex; gap:20px;">
