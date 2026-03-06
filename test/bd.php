@@ -1054,7 +1054,7 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($wa_msg);
 
                 <?php if (!empty($book['price'])): ?>
                     <div class="price-block">
-                        <span class="price-currency">PKR</span>
+                        <span class="price-currency">₹</span>
                         <span class="price-amount"><?= htmlspecialchars($book['price'], ENT_QUOTES) ?></span>
                     </div>
                 <?php endif; ?>
