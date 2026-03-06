@@ -27,19 +27,34 @@ $stmt->execute();
 $images = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
 
+// $stmt = $conn->prepare("SELECT a.id, a.name, a.title, a.description, a.image
+//                         FROM authors a
+//                         JOIN book_authors ba ON ba.author_id = a.id
+//                         WHERE ba.book_id = ?
+//                         ORDER BY a.name ASC");
+// Fetch only 2 authors for preview
 $stmt = $conn->prepare("SELECT a.id, a.name, a.title, a.description, a.image
                         FROM authors a
                         JOIN book_authors ba ON ba.author_id = a.id
                         WHERE ba.book_id = ?
-                        ORDER BY a.name ASC");
+                        ORDER BY a.name ASC LIMIT 2");
 $stmt->bind_param("i", $book_id);
 $stmt->execute();
 $authors = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
 
+// Get total author count separately
+$stmt2 = $conn->prepare("SELECT COUNT(*) FROM book_authors WHERE book_id = ?");
+$stmt2->bind_param("i", $book_id);
+$stmt2->execute();
+$result2 = $stmt2->get_result();
+$totalAuthors = $result2->fetch_row()[0] ?? 0;
+$stmt2->close();
+// 
+
 $whatsapp_number = '+919752747384';
 $wa_msg = "Hi, I'm interested in the book: *" . $book['title'] . "*\n"
-    . "Price: PKR " . $book['price'] . "\n"
+    . "Price: INR " . $book['price'] . "\n"
     . "Publisher: " . $book['publishers'] . "\n"
     . "Please share more details.";
 $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($wa_msg);
@@ -986,6 +1001,52 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($wa_msg);
                 }
             }
         }
+
+
+        /*  */
+        .lb-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .2);
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s;
+            z-index: 10000;
+        }
+
+        .lb-nav:hover {
+            background: rgba(255, 255, 255, .25);
+        }
+
+        .lb-prev {
+            left: 20px;
+        }
+
+        .lb-next {
+            right: 72px;
+        }
+
+        .lb-counter {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, .6);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /*  */
     </style>
 </head>
 
@@ -993,11 +1054,18 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($wa_msg);
     <?php include 'header.php'; ?>
 
     <!-- ── LIGHTBOX ────────────────────────────────────────────────── -->
-    <div class="lightbox" id="lightbox">
+    <!-- <div class="lightbox" id="lightbox">
         <button class="lb-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
         <img src="" id="lbImg" alt="">
-    </div>
+    </div> -->
 
+    <div class="lightbox" id="lightbox">
+        <button class="lb-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+        <button class="lb-nav lb-prev" onclick="lbNav(-1)"><i class="fas fa-chevron-left"></i></button>
+        <img src="" id="lbImg" alt="">
+        <button class="lb-nav lb-next" onclick="lbNav(1)"><i class="fas fa-chevron-right"></i></button>
+        <div class="lb-counter" id="lbCounter"></div>
+    </div>
     <!-- ═══════════════════════════════════════════════════════════════
      HERO BAND
 ═══════════════════════════════════════════════════════════════ -->
@@ -1014,23 +1082,7 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($wa_msg);
                     </div>
                 </div>
 
-                <?php
-                $allImgs = [];
-                if (!empty($book['book_image']))
-                    $allImgs[] = $book['book_image'];
-                foreach ($images as $gi)
-                    $allImgs[] = $gi['image_path'];
-                ?>
-                <?php if (count($allImgs) > 1): ?>
-                    <div class="thumb-row">
-                        <?php foreach ($allImgs as $idx => $imgSrc): ?>
-                            <div class="thumb <?= $idx === 0 ? 'active' : '' ?>"
-                                onclick="switchCover('../<?= htmlspecialchars($imgSrc, ENT_QUOTES) ?>', this)">
-                                <img src="../<?= htmlspecialchars($imgSrc, ENT_QUOTES) ?>" alt="">
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
+
             </div>
 
             <!-- Info column -->
@@ -1105,7 +1157,7 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($wa_msg);
         if (!empty($book['length']))
             $details[] = ['fas fa-file-alt', 'Pages', $book['length'], false];
         if (!empty($book['price']))
-            $details[] = ['fas fa-tag', 'Price', 'PKR ' . $book['price'], false];
+            $details[] = ['fas fa-tag', 'Price', 'INR ' . $book['price'], false];
         if (empty($details)):
         else: ?>
             <div class="details-strip reveal">
@@ -1207,9 +1259,11 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($wa_msg);
             <?php else: ?>
                 <div class="authors-list">
                     <?php foreach ($authors as $i => $author):
-                        $imgPath = "../uploads/authors/" . $author['image'];
+                        if (empty($author['name']))
+                            continue; // skip broken rows
+                        $imgPath = "../uploads/authors/" . ($author['image'] ?? '');
                         $hasImg = !empty($author['image']) && file_exists($imgPath);
-                        $initial = strtoupper(substr($author['name'], 0, 1));
+                        $initial = strtoupper(substr($author['name'] ?? 'A', 0, 1));
                         ?>
                         <a href="author_detail.php?id=<?= (int) $author['id'] ?>" class="author-row"
                             style="animation-delay: <?= $i * .08 ?>s">
@@ -1238,9 +1292,18 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($wa_msg);
                 </div>
             <?php endif; ?>
 
-            <a href="all_authors.php" class="all-authors-link">
+            <!-- <a href="all_authors.php" class="all-authors-link">
                 <i class="fas fa-users"></i> Browse All Authors
-            </a>
+            </a> -->
+               <?php if ($totalAuthors > 2): ?>
+                <a href="book_authors.php?id=<?= $book_id ?>" class="all-authors-link">
+                    <i class="fas fa-users"></i> View All <?= $totalAuthors ?> Authors
+                </a>
+                        <?php elseif ($totalAuthors == 2): ?>
+                <a href="book_authors.php?id=<?= $book_id ?>" class="all-authors-link">
+                    <i class="fas fa-users"></i> View Both Authors
+                </a>
+                        <?php endif; ?>
         </div>
 
     </div><!-- /body-wrap -->
@@ -1296,6 +1359,73 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($wa_msg);
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // 
+        /* ── Lightbox ── */
+        let lbImages = [];
+        let lbIndex = 0;
+
+        // Collect all gallery images on page load
+        function buildLbImages() {
+            lbImages = [];
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                lbImages.push(img.src);
+            });
+        }
+
+        document.getElementById('mainCoverFrame').addEventListener('click', () => {
+            buildLbImages();
+            // Also include cover as first image
+            const coverSrc = document.getElementById('mainCoverImg').src;
+            const allImgs = [coverSrc, ...lbImages];
+            lbImages = allImgs;
+            openLightboxAt(0);
+        });
+
+        document.querySelectorAll('.gallery-item').forEach((item, i) => {
+            item.addEventListener('click', () => {
+                buildLbImages();
+                openLightboxAt(i);
+            });
+        });
+
+        function openLightbox(src) {
+            buildLbImages();
+            const i = lbImages.indexOf(src);
+            openLightboxAt(i >= 0 ? i : 0);
+        }
+
+        function openLightboxAt(index) {
+            lbIndex = index;
+            updateLb();
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateLb() {
+            document.getElementById('lbImg').src = lbImages[lbIndex];
+            document.getElementById('lbCounter').textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+        }
+
+        function lbNav(dir) {
+            lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+            updateLb();
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('lightbox').addEventListener('click', function (e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') lbNav(-1);
+            if (e.key === 'ArrowRight') lbNav(1);
+        });
     </script>
 </body>
 
