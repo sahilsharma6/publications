@@ -490,7 +490,7 @@ $hasCover = !empty($book['img']) && file_exists($coverPath);
             <nav class="page-breadcrumb">
                 <a href="index.php"><i class="fas fa-home"></i> Home</a>
                 <i class="fas fa-chevron-right sep"></i>
-                <a href="book_detail.php?id=<?= $book_id ?>">
+                <a href="book_details.php?id=<?= $book_id ?>">
                     <?= htmlspecialchars($book['title'], ENT_QUOTES) ?>
                 </a>
                 <i class="fas fa-chevron-right sep"></i>
@@ -541,7 +541,7 @@ $hasCover = !empty($book['img']) && file_exists($coverPath);
         <div class="container">
 
             <!-- Back button -->
-            <a href="book_detail.php?id=<?= $book_id ?>" class="btn-back-book">
+            <a href="book_details.php?id=<?= $book_id ?>" class="btn-back-book">
                 <i class="fas fa-arrow-left"></i> Back to Book
             </a>
 
