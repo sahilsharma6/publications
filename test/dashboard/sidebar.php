@@ -24,9 +24,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 //     || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 
 // $root_url = 'http://localhost/book/test/dashboard/';
-// // $root_url = $protocol . $_SERVER['HTTP_HOST'] . '/test/dashboard/';
 
-include "components/adminUrl.php";
+// include "components/adminUrl.php";
+$root_url = $protocol . $_SERVER['HTTP_HOST'] . '/test/dashboard/';
 
 
 
