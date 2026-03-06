@@ -1250,7 +1250,7 @@ $conn->close();
             <div class="sec-header reveal">
                 <div class="sec-eyebrow">Curated Collection</div>
                 <h2 class="sec-h2">Best <em>Books</em></h2>
-                <p class="sec-sub">Handpicked titles from our library — curated by category</p>
+                <p class="sec-sub">Handpicked books from our library — curated by category</p>
             </div>
 
             <?php if (empty($categories)): ?>
