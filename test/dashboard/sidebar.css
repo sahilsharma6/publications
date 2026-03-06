@@ -70,15 +70,13 @@ body {
 .logo-details .logo-icon {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, var(--accent), #4299e1);
+  /* background: linear-gradient(135deg, var(--accent), #4299e1); */
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  color: #fff;
   flex-shrink: 0;
-  box-shadow: 0 0 20px var(--accent-glow);
 }
 
 .logo-details .logo_name {
