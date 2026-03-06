@@ -2,7 +2,12 @@
 include '../db.php';
 session_start();
 
-$sql = "SELECT * FROM categories";
+// Fetch only categories that have at least 1 best book
+$sql = "SELECT DISTINCT c.id, c.name
+        FROM categories c
+        INNER JOIN best_books bb ON bb.category_id = c.id
+        INNER JOIN books_data b  ON b.id = bb.book_id
+        ORDER BY c.name ASC";
 $result = $conn->query($sql);
 
 $categories = [];
@@ -18,48 +23,24 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Professional Publication Services</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap"
         rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <!-- <nav class="navbar navbar-expand-lg navbar-modern">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#"><img src="../uploads/logos/logotest.png" height="100" width="150"
-                    alt=""></a>
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Books</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                </ul>
-                <a href="login.php" class="btn btn-primary-custom">Login</a>
-            </div>
-        </div>
-    </nav> -->
     <?php include 'header.php'; ?>
 
     <!-- HERO -->
     <section class="hero-carousel">
         <div id="mainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-
             <div class="carousel-inner">
 
-                <!-- Slide 1 -->
                 <div class="carousel-item active">
                     <div class="hero-slide slide-1">
                         <div class="hero-content container">
@@ -70,7 +51,6 @@ $conn->close();
                     </div>
                 </div>
 
-                <!-- Slide 2 -->
                 <div class="carousel-item">
                     <div class="hero-slide slide-2">
                         <div class="hero-content container">
@@ -81,7 +61,6 @@ $conn->close();
                     </div>
                 </div>
 
-                <!-- Slide 3 -->
                 <div class="carousel-item">
                     <div class="hero-slide slide-3">
                         <div class="hero-content container">
@@ -93,94 +72,100 @@ $conn->close();
                 </div>
 
             </div>
-
             <button class="carousel-control-prev custom-arrow" type="button" data-bs-target="#mainCarousel"
                 data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </button>
-
             <button class="carousel-control-next custom-arrow" type="button" data-bs-target="#mainCarousel"
                 data-bs-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </button>
-
         </div>
     </section>
 
 
-    <!-- BOOKS -->
+    <!-- ══════════════════════════════════════
+         BEST BOOKS SECTION
+    ══════════════════════════════════════ -->
     <section class="books-section py-5">
         <div class="container">
 
-            <h2 class="text-center mb-5">
+            <h2 class="text-center mb-2">
                 Best <span class="text-accent">Books</span>
             </h2>
+            <p class="text-center text-muted mb-5" style="font-size:15px">
+                Handpicked titles — curated by category
+            </p>
 
-            <!-- Tabs -->
-            <ul class="nav justify-content-center custom-tabs mb-5" role="tablist">
-                <?php foreach ($categories as $index => $category): ?>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link <?php echo $index == 0 ? 'active' : ''; ?>" data-bs-toggle="tab"
-                            data-bs-target="#cat-<?php echo $category['id']; ?>" type="button" role="tab">
-                            <?php echo ucfirst($category['name']); ?>
-                        </button>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
+            <?php if (empty($categories)): ?>
+                <p class="text-center text-muted">No featured books yet. Check back soon.</p>
+            <?php else: ?>
 
-            <!-- Tab Content -->
-            <div class="tab-content">
+                <!-- Category tabs -->
+                <ul class="nav justify-content-center custom-tabs mb-5" role="tablist">
+                    <?php foreach ($categories as $index => $category): ?>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link <?= $index === 0 ? 'active' : '' ?>" data-bs-toggle="tab"
+                                data-bs-target="#cat-<?= (int) $category['id'] ?>" type="button" role="tab">
+                                <?= htmlspecialchars(ucfirst($category['name']), ENT_QUOTES) ?>
+                            </button>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
 
-                <?php foreach ($categories as $index => $category): ?>
+                <!-- Tab content -->
+                <div class="tab-content">
+                    <?php
+                    include '../db.php';
 
-                    <div class="tab-pane fade <?php echo $index == 0 ? 'show active' : ''; ?>"
-                        id="cat-<?php echo $category['id']; ?>" role="tabpanel">
+                    foreach ($categories as $index => $category):
+                        $cat_id = (int) $category['id'];
 
-                        <div class="row g-4">
+                        // ── KEY CHANGE: only best books, in admin-defined order ──
+                        $bStmt = $conn->prepare("
+                        SELECT b.id, b.title, b.img, b.price
+                        FROM   books_data b
+                        INNER JOIN best_books bb ON bb.book_id = b.id
+                        WHERE  bb.category_id = ?
+                        ORDER  BY bb.sort_order ASC
+                    ");
+                        $bStmt->bind_param("i", $cat_id);
+                        $bStmt->execute();
+                        $bRes = $bStmt->get_result();
+                        $bStmt->close();
+                        ?>
+                        <div class="tab-pane fade <?= $index === 0 ? 'show active' : '' ?>" id="cat-<?= $cat_id ?>"
+                            role="tabpanel">
 
-                            <?php
-                            include '../db.php';
-                            $cat_id = $category['id'];
-
-                            $books_query = "SELECT * FROM books_data WHERE category_id = $cat_id";
-                            $books_result = $conn->query($books_query);
-
-                            if ($books_result->num_rows > 0):
-                                while ($book = $books_result->fetch_assoc()):
-                                    ?>
-
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <a href="bd.php?id=<?php echo $book['id']; ?>" class="text-decoration-none">
-
-                                            <div class="book-card-modern h-100">
-
-                                                <div class="book-img-wrapper">
-                                                    <img src="../<?php echo $book['img']; ?>" alt="<?php echo $book['title']; ?>">
+                            <?php if ($bRes && $bRes->num_rows > 0): ?>
+                                <div class="row g-4">
+                                    <?php while ($book = $bRes->fetch_assoc()): ?>
+                                        <div class="col-lg-3 col-md-4 col-sm-6">
+                                            <a href="bd.php?id=<?= (int) $book['id'] ?>" class="text-decoration-none">
+                                                <div class="book-card-modern h-100">
+                                                    <div class="book-img-wrapper">
+                                                        <img src="../<?= htmlspecialchars($book['img'], ENT_QUOTES) ?>"
+                                                            alt="<?= htmlspecialchars($book['title'], ENT_QUOTES) ?>">
+                                                    </div>
+                                                    <div class="book-body">
+                                                        <h5><?= htmlspecialchars($book['title'], ENT_QUOTES) ?></h5>
+                                                        <p class="price">₹ <?= htmlspecialchars($book['price'], ENT_QUOTES) ?></p>
+                                                    </div>
                                                 </div>
+                                            </a>
+                                        </div>
+                                    <?php endwhile; ?>
+                                </div>
 
-                                                <div class="book-body">
-                                                    <h5><?php echo $book['title']; ?></h5>
-                                                    <p class="price">₹ <?php echo $book['price']; ?></p>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-                                    </div>
-
-                                <?php endwhile; else: ?>
-
-                                <p class="text-center">No books available in this category.</p>
-
+                            <?php else: ?>
+                                <p class="text-center text-muted py-4">No featured books in this category yet.</p>
                             <?php endif; ?>
 
                         </div>
+                    <?php endforeach; ?>
+                </div><!-- /.tab-content -->
 
-                    </div>
-
-                <?php endforeach; ?>
-
-            </div>
+            <?php endif; ?>
 
         </div>
     </section>
@@ -207,75 +192,42 @@ $conn->close();
         </div>
     </section>
 
-    <!-- SERVICES -->
-    <section>
-        <div class="container text-center">
-            <h2 class="mb-5">Our Services</h2>
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="service-card">
-                        <i class="fa-solid fa-book-open fa-2x mb-3 "></i>
-                        <h5>Manuscript Writing</h5>
-                        <p>Professional writing and editing services for research publications.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="service-card">
-                        <i class="fa-solid fa-magnifying-glass fa-2x mb-3"></i>
-                        <h5>Journal Selection</h5>
-                        <p>Expert assistance in choosing the right journal for publication.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="service-card">
-                        <i class="fa-solid fa-pen-nib fa-2x mb-3"></i>
-                        <h5>Editing Services</h5>
-                        <p>Language editing and formatting to meet journal guidelines.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="service-card">
-                        <i class="fa-solid fa-file-signature fa-2x mb-3"></i>
-                        <h5>Publication Support</h5>
-                        <p>End-to-end assistance from submission to final publication.</p>
-                    </div>
+    <!-- SERVICES — dynamic from DB -->
+    <?php
+    include '../db.php';
+    $svcRes = $conn->query("SELECT * FROM services WHERE is_active = 1 ORDER BY sort_order ASC, id ASC");
+    $svcList = $svcRes ? $svcRes->fetch_all(MYSQLI_ASSOC) : [];
+    $conn->close();
+    ?>
+    <?php if (!empty($svcList)): ?>
+        <section>
+            <div class="container text-center">
+                <h2 class="mb-5">Our Services</h2>
+                <div class="row g-4">
+                    <?php
+                    // Distribute into Bootstrap columns: 4 per row
+                    $count = count($svcList);
+                    $colCls = $count <= 3 ? 'col-md-' . (int) (12 / $count) : 'col-md-3';
+                    foreach ($svcList as $svc):
+                        ?>
+                        <div class="<?= $colCls ?> col-sm-6">
+                            <div class="service-card">
+                                <i class="<?= htmlspecialchars($svc['icon'], ENT_QUOTES) ?> fa-2x mb-3"></i>
+                                <h5><?= htmlspecialchars($svc['title'], ENT_QUOTES) ?></h5>
+                                <?php if (!empty($svc['description'])): ?>
+                                    <p><?= htmlspecialchars($svc['description'], ENT_QUOTES) ?></p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    <?php endif; ?>
 
     <?php include 'footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            function loadBooks(categoryName) {
-                fetch('filterbycat.php?category_name=' + categoryName)
-                    .then(res => res.json())
-                    .then(books => {
-                        const tab = document.getElementById(categoryName);
-                        tab.innerHTML = '';
-                        books.forEach(book => {
-                            tab.innerHTML += `
-<a href="book_details.php?id=${book.id}" class="text-decoration-none">
-<div class="book-card">
-<img src="${book.img}" class="img-fluid mb-3">
-<h5>${book.title}</h5>
-<p class="price">RS ${book.price}</p>
-</div>
-</a>`;
-                        });
-                    });
-            }
-            loadBooks("<?php echo $categories[0]['name']; ?>");
-            document.querySelectorAll(".nav-link").forEach(link => {
-                link.addEventListener("click", function () {
-                    loadBooks(this.dataset.categoryName);
-                });
-            });
-        });
-    </script>
 
 </body>
 

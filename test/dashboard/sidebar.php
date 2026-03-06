@@ -109,6 +109,7 @@ function navItem(string $icon, string $label, array $subLinks = [], string $curr
         <?php navItem('bx-book-alt', 'Books', [
             ['href' => $root_url . 'AllBooks.php', 'label' => 'All Books'],
             ['href' => $root_url . 'AddBook.php', 'label' => 'Add Book'],
+            ['href' => $root_url . 'BestBooks.php', 'label' => 'Add Best Books'],
             ['href' => $root_url . 'add_book_images.php', 'label' => 'Add Images'],
             ['href' => $root_url . 'manage_book_images.php', 'label' => 'Manage Images'],
         ], $currentPage); ?>
@@ -125,8 +126,10 @@ function navItem(string $icon, string $label, array $subLinks = [], string $curr
         <li class="nav-section-label">System</li>
 
         <?php navItem('bx-cog', 'Settings', [
+            ['href' => $root_url . 'Services.php', 'label' => 'Add Services'],
             ['href' => $root_url . 'add_logo.php', 'label' => 'Add Logo'],
             ['href' => $root_url . 'change_password.php', 'label' => 'Change Password'],
+
         ], $currentPage); ?>
 
         <?php if ($role === 'SuperAdmin'): ?>
