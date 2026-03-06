@@ -662,7 +662,7 @@ $initial = strtoupper(substr($author['name'], 0, 1));
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'Header.php'; ?>
 
     <!-- Hero -->
     <section class="author-hero">
@@ -889,7 +889,7 @@ $initial = strtoupper(substr($author['name'], 0, 1));
         </div>
     </main>
 
-    <?php include 'footer.php'; ?>
+    <?php include 'Footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

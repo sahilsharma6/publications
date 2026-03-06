@@ -912,7 +912,7 @@ $conn->close();
 
 <body>
 
-    <?php include 'header.php'; ?>
+    <?php include 'Header.php'; ?>
 
     <!-- ── HERO ─────────────────────────────────────────────────── -->
     <div class="page-hero">
@@ -1126,7 +1126,7 @@ $conn->close();
         </main>
     </div><!-- /page-body -->
 
-    <?php include 'footer.php'; ?>
+    <?php include 'Footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>

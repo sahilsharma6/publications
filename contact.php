@@ -768,7 +768,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
-    <?php include 'header.php'; ?>
+    <?php include 'Header.php'; ?>
 
     <!-- ══════════════════════════════════════
      HERO
@@ -1005,7 +1005,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     </div><!-- /page-body -->
 
-    <?php include 'footer.php'; ?>
+    <?php include 'Footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>

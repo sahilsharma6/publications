@@ -1051,7 +1051,7 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($wa_msg);
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'Header.php'; ?>
 
     <!-- ── LIGHTBOX ────────────────────────────────────────────────── -->
     <!-- <div class="lightbox" id="lightbox">
@@ -1308,7 +1308,7 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($wa_msg);
 
     </div><!-- /body-wrap -->
 
-    <?php include 'footer.php'; ?>
+    <?php include 'Footer.php'; ?>
 
     <script>
         /* ── Cover switcher ── */
