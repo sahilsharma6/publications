@@ -1106,7 +1106,7 @@ $conn->close();
 
 <body>
 
-  <?php include 'header.php'; ?>
+  <?php include 'Header.php'; ?>
 
   <!-- ══════════════════════════════════════════════
      HERO
@@ -1417,7 +1417,7 @@ $conn->close();
   </div>
 
 
-  <?php include 'footer.php'; ?>
+  <?php include 'Footer.php'; ?>
   <?php if (file_exists('utils/whatsapp-icon.php'))
     include 'utils/whatsapp-icon.php'; ?>
 
