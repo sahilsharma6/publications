@@ -1448,7 +1448,7 @@ $totalImages = count($images);
         <div class="page-header-left">
             <h1>Publishing Images</h1>
             <nav class="breadcrumb">
-                <a href="dashboard.php"><i class='bx bx-home-alt'></i> Dashboard</a>
+                <a href="<?= $root_url ?>"><i class='bx bx-home-alt'></i> Dashboard</a>
                 <i class='bx bx-chevron-right'></i>
                 <span>Publishing Images</span>
             </nav>
@@ -1468,7 +1468,8 @@ $totalImages = count($images);
             <div class="summary-icon si-green"><i class='bx bx-check-circle'></i></div>
             <div>
                 <div class="summary-val">
-                    <?= number_format(count(array_filter($images, fn($i) => !empty($i['description'])))) ?></div>
+                    <?= number_format(count(array_filter($images, fn($i) => !empty($i['description'])))) ?>
+                </div>
                 <div class="summary-label">With Description</div>
             </div>
         </div>
@@ -1476,7 +1477,8 @@ $totalImages = count($images);
             <div class="summary-icon si-amber"><i class='bx bx-image-alt'></i></div>
             <div>
                 <div class="summary-val">
-                    <?= number_format(count(array_filter($images, fn($i) => empty($i['description'])))) ?></div>
+                    <?= number_format(count(array_filter($images, fn($i) => empty($i['description'])))) ?>
+                </div>
                 <div class="summary-label">No Description</div>
             </div>
         </div>
@@ -1507,7 +1509,8 @@ $totalImages = count($images);
                             <span class="upload-icon"><i class='bx bx-image-add'></i></span>
                             <div class="upload-label">Drop image here or <span>browse</span></div>
                             <div class="upload-hint"><span>JPG</span>, <span>PNG</span>, <span>WEBP</span>,
-                                <span>GIF</span> — max <span>5 MB</span></div>
+                                <span>GIF</span> — max <span>5 MB</span>
+                            </div>
                             <div class="new-preview-wrap" id="previewWrap">
                                 <img id="previewImg" class="new-preview-img" src="" alt="">
                                 <button type="button" class="preview-remove" id="removePreview"><i

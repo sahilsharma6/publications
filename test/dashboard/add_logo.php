@@ -1128,7 +1128,7 @@ $logoDate = $logoExists ? date('d M Y, H:i', filemtime($currentLogo)) : null;
         <div class="page-header-left">
             <h1>Logo Management</h1>
             <nav class="breadcrumb">
-                <a href="dashboard.php"><i class='bx bx-home-alt'></i> Dashboard</a>
+                <a href="<?= $root_url ?>"><i class='bx bx-home-alt'></i> Dashboard</a>
                 <i class='bx bx-chevron-right'></i>
                 <span>Logo</span>
             </nav>

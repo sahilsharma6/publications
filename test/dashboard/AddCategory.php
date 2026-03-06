@@ -100,7 +100,7 @@ $conn->close();
     <!-- ── Page header ─────────────────────────────────────────────── -->
     <div class="page-header">
         <nav class="breadcrumb">
-            <a href="dashboard.php"><i class='bx bx-home-alt'></i> Dashboard</a>
+            <a href="<?= $root_url ?>"><i class='bx bx-home-alt'></i> Dashboard</a>
             <i class='bx bx-chevron-right'></i>
             <a href="AllCategories.php">Categories</a>
             <i class='bx bx-chevron-right'></i>

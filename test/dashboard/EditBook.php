@@ -477,7 +477,7 @@ $currentImg = $old['img'] ?? $book['img'] ?? null;
     <!-- ── Page header ─────────────────────────────────────────────── -->
     <div class="page-header">
         <nav class="breadcrumb">
-            <a href="dashboard.php"><i class='bx bx-home-alt'></i> Dashboard</a>
+            <a href="<?= $root_url ?>"><i class='bx bx-home-alt'></i> Dashboard</a>
             <i class='bx bx-chevron-right'></i>
             <a href="AllBooks.php">Books</a>
             <i class='bx bx-chevron-right'></i>
@@ -595,8 +595,8 @@ $currentImg = $old['img'] ?? $book['img'] ?? null;
                                 <span class="hint">numeric</span>
                             </label>
                             <div class="input-wrap">
-                                <div class="input-icon"><i class='bx bx-dollar'></i></div>
-                                <span class="price-prefix">PKR</span>
+                                <div class="input-icon"><i class='bx bx-rupee'></i></div>
+                                <span class="price-prefix">INR</span>
                                 <input type="text" id="price" name="price"
                                     class="form-input has-prefix <?= !empty($errors['price']) ? 'has-error' : '' ?>"
                                     value="<?= htmlspecialchars($old['price'] ?? '', ENT_QUOTES) ?>"
@@ -765,11 +765,11 @@ $currentImg = $old['img'] ?? $book['img'] ?? null;
                         </div>
                     </div>
                     <div class="meta-row">
-                        <i class='bx bx-dollar'></i>
+                        <i class='bx bx-rupee'></i>
                         <div class="meta-content">
                             <div class="meta-label">Price</div>
                             <div class="meta-val <?= !empty($old['price']) ? '' : 'empty' ?>" id="previewPrice">
-                                <?= !empty($old['price']) ? 'PKR ' . htmlspecialchars($old['price'], ENT_QUOTES) : '—' ?>
+                                <?= !empty($old['price']) ? '₹ ' . htmlspecialchars($old['price'], ENT_QUOTES) : '—' ?>
                             </div>
                         </div>
                     </div>
@@ -913,7 +913,7 @@ $currentImg = $old['img'] ?? $book['img'] ?? null;
             });
         }
         wire('publishers', 'previewPub',   '—');
-        wire('price',      'previewPrice', '—', v => v ? 'PKR ' + v : '');
+        wire('price',      'previewPrice', '—', v => v ? '₹' + v : '');
         wire('length',     'previewPages', '—', v => v ? v + ' pages' : '');
 
         /* ── Image upload + preview ─────────────────── */

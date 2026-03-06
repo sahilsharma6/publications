@@ -899,7 +899,7 @@ if (!$toast && isset($_GET['toast']) && $_GET['toast'] === 'success') {
         <div class="page-header-left">
             <h1>Change Password</h1>
             <nav class="breadcrumb">
-                <a href="dashboard.php"><i class='bx bx-home-alt'></i> Dashboard</a>
+                <a href="<?= $root_url ?>"><i class='bx bx-home-alt'></i> Dashboard</a>
                 <i class='bx bx-chevron-right'></i>
                 <span>Change Password</span>
             </nav>

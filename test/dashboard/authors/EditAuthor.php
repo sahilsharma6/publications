@@ -40,7 +40,7 @@ $baStmt->close();
 $currentBookId = (int) ($currentBookId ?? 0);
 
 /* ── Fetch all books ─────────────────────────────────────────────────────── */
-$booksRes = $conn->query("SELECT id, name FROM books_data ORDER BY name ASC");
+$booksRes = $conn->query("SELECT id, title FROM books_data ORDER BY title ASC");
 $books = $booksRes ? $booksRes->fetch_all(MYSQLI_ASSOC) : [];
 
 /* ── State ───────────────────────────────────────────────────────────────── */
@@ -914,7 +914,7 @@ $initial = strtoupper(substr($author['name'], 0, 1));
     <!-- ── Page header ─────────────────────────────────────────────── -->
     <div class="page-header">
         <nav class="breadcrumb">
-            <a href="../"><i class='bx bx-home-alt'></i> Dashboard</a>
+            <a href="<?= $root_url ?>"><i class='bx bx-home-alt'></i> Dashboard</a>
             <i class='bx bx-chevron-right'></i>
             <a href="AllAuthors.php">Authors</a>
             <i class='bx bx-chevron-right'></i>
@@ -1065,7 +1065,7 @@ $initial = strtoupper(substr($author['name'], 0, 1));
                                 <option value="0">— No book —</option>
                                 <?php foreach ($books as $b): ?>
                                     <option value="<?= (int) $b['id'] ?>" <?= $currentBookId === (int) $b['id'] ? 'selected' : '' ?>>
-                                        <?= htmlspecialchars($b['name'], ENT_QUOTES) ?>
+                                        <?= htmlspecialchars($b['title'], ENT_QUOTES) ?>
                                     </option>
                                 <?php endforeach; ?>
                             </select>

@@ -143,12 +143,14 @@ function sortUrl(string $col): string
     </div> -->
 
 
+
+
     <!-- Page header -->
     <div class="page-header">
         <div class="page-header-left">
             <h1>All Categories</h1>
             <nav class="breadcrumb" aria-label="breadcrumb">
-                <a href="dashboard.php"><i class='bx bx-home-alt'></i> Dashboard</a>
+                <a href="<?= $root_url ?>"><i class='bx bx-home-alt'></i> Dashboard</a>
                 <i class='bx bx-chevron-right'></i>
                 <span>Categories</span>
             </nav>

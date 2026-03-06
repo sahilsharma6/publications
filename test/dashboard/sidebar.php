@@ -20,11 +20,18 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
 
 
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
-    || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+// $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
+//     || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 
 // $root_url = 'http://localhost/book/test/dashboard/';
-$root_url = $protocol . $_SERVER['HTTP_HOST'] . '/test/dashboard/';
+// // $root_url = $protocol . $_SERVER['HTTP_HOST'] . '/test/dashboard/';
+
+include "components/adminUrl.php";
+
+
+
+
+
 function navItem(string $icon, string $label, array $subLinks = [], string $currentPage = ''): void
 {
     $hasChildren = count($subLinks) > 1 || isset($subLinks[0]['label']);

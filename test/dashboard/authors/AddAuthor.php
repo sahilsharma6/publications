@@ -92,7 +92,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 /* ── Fetch Books for dropdown ─────────────────────────────────────────────── */
-$booksRes = $conn->query("SELECT id, name FROM books_data ORDER BY name ASC");
+// $booksRes = $conn->query("SELECT id, name FROM books_data ORDER BY name ASC");
+$booksRes = $conn->query("SELECT id, title AS name FROM books_data ORDER BY title ASC");
 $books = $booksRes ? $booksRes->fetch_all(MYSQLI_ASSOC) : [];
 
 /* ── Stats ─────────────────────────────────────────────────────────────────── */
@@ -115,6 +116,8 @@ $conn->close();
         href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="AddAuthor.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
 
 </head>
 
@@ -134,7 +137,7 @@ $conn->close();
     <div class="page-header">
         <h1>Add Author</h1>
         <nav class="breadcrumb" aria-label="breadcrumb">
-            <a href="../"><i class='bx bx-home-alt'></i> Dashboard</a>
+            <a href="<?= $root_url ?>"><i class='bx bx-home-alt'></i> Dashboard</a>
             <i class='bx bx-chevron-right'></i>
             <a href="AllAuthors.php">Authors</a>
             <i class='bx bx-chevron-right'></i>
@@ -259,7 +262,7 @@ $conn->close();
                     <!-- ── Book Assignment ── -->
                     <div class="section-title">Book Assignment</div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="book_id" class="form-label">
                             <span>Assign to Book</span>
                             <span class="lbl-hint">optional · one book per author</span>
@@ -280,7 +283,37 @@ $conn->close();
                             <i class='bx bx-info-circle' style="font-size:13px"></i>
                             You can assign more books later from the author's edit page.
                         </div>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="book_id" class="form-label">
+                            <span>Assign to Book</span>
+                            <span class="lbl-hint">optional · one book per author</span>
+                        </label>
+                        <select name="book_id" id="book_id" class="form-input" placeholder="Search for a book…">
+                            <option value="0">— No book selected —</option>
+                            <?php foreach ($books as $b): ?>
+                                <option value="<?= (int) $b['id'] ?>" <?= ((int) ($oldPost['book_id'] ?? 0) === (int) $b['id']) ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($b['name'], ENT_QUOTES) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+
                     </div>
+
+                    <style>
+
+                    </style>
+                    <script>/* ── Searchable book select ──────────────────── */
+                        new TomSelect('#book_id', {
+                            maxOptions: null,          // show all results
+                            placeholder: 'Search for a book…',
+                            allowEmptyOption: true,
+                            sortField: { field: 'text', direction: 'asc' },
+                            plugins: ['clear_button'],
+                            render: {
+                                no_results: () => '<div class="no-results">No books found</div>'
+                            }
+                        });</script>
 
                     <div class="form-divider"></div>
 

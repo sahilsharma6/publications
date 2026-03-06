@@ -660,3 +660,17 @@ select.form-input {
 .quick-link:hover i {
   color: var(--accent);
 }
+
+.ts-wrapper .ts-control {
+  border: 1px solid var(--border, #d1d5db);
+  border-radius: 8px;
+  padding-left: 38px;
+  /* align with your input-icon offset */
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.ts-wrapper.focus .ts-control {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb, 99, 102, 241), 0.15);
+}

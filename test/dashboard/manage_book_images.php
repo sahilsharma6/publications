@@ -1047,7 +1047,7 @@ function pgUrl(array $ov = []): string
         <div class="page-header-left">
             <h1>Book Images</h1>
             <nav class="breadcrumb">
-                <a href="dashboard.php"><i class='bx bx-home-alt'></i> Dashboard</a>
+                <a href="<?= $root_url ?>"><i class='bx bx-home-alt'></i> Dashboard</a>
                 <i class='bx bx-chevron-right'></i>
                 <span>Book Images</span>
             </nav>
@@ -1184,14 +1184,16 @@ function pgUrl(array $ov = []): string
         <?php if ($totalPages > 1 || $totalRows > 0): ?>
             <div class="pagination-row">
                 <div class="pag-info">Showing
-                    <strong><?= ($page - 1) * $perPage + 1 ?></strong>–<strong><?= min($page * $perPage, $totalRows) ?></strong> of
-                    <strong><?= number_format($totalRows) ?></strong></div>
+                    <strong><?= ($page - 1) * $perPage + 1 ?></strong>–<strong><?= min($page * $perPage, $totalRows) ?></strong>
+                    of
+                    <strong><?= number_format($totalRows) ?></strong>
+                </div>
                 <?php if ($totalPages > 1): ?>
                     <ul class="pag-list">
                         <li><a class="pag-btn <?= $page <= 1 ? 'is-disabled' : '' ?>" href="<?= pgUrl(['page' => 1]) ?>"><i
                                     class='bx bx-chevrons-left'></i></a></li>
-                        <li><a class="pag-btn <?= $page <= 1 ? 'is-disabled' : '' ?>" href="<?= pgUrl(['page' => $page - 1]) ?>"><i
-                                    class='bx bx-chevron-left'></i></a></li>
+                        <li><a class="pag-btn <?= $page <= 1 ? 'is-disabled' : '' ?>"
+                                href="<?= pgUrl(['page' => $page - 1]) ?>"><i class='bx bx-chevron-left'></i></a></li>
                         <?php
                         $ws = max(1, $page - 2);
                         $we = min($totalPages, $page + 2);

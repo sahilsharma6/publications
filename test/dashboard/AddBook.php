@@ -874,7 +874,7 @@ $conn->close();
     <!-- ── Page header ─────────────────────────────────────────────── -->
     <div class="page-header">
         <nav class="breadcrumb">
-            <a href="dashboard.php"><i class='bx bx-home-alt'></i> Dashboard</a>
+            <a href="<?= $root_url ?>"><i class='bx bx-home-alt'></i> Dashboard</a>
             <i class='bx bx-chevron-right'></i>
             <a href="AllBooks.php">Books</a>
             <i class='bx bx-chevron-right'></i>
@@ -990,8 +990,8 @@ $conn->close();
                                 <span class="hint">numeric</span>
                             </label>
                             <div class="input-wrap">
-                                <div class="input-icon"><i class='bx bx-dollar'></i></div>
-                                <span class="price-prefix">PKR</span>
+                                <div class="input-icon"><i class='bx bx-rupee'></i></div>
+                                <span class="price-prefix">Inr</span>
                                 <input type="text" id="price" name="price"
                                     class="form-input has-prefix <?= !empty($errors['price']) ? 'has-error' : '' ?>"
                                     value="<?= htmlspecialchars($old['price'] ?? '', ENT_QUOTES) ?>" placeholder="0.00"
@@ -1126,7 +1126,7 @@ $conn->close();
                         </div>
                     </div>
                     <div class="meta-row">
-                        <i class='bx bx-dollar'></i>
+                        <i class='bx bx-rupee'></i>
                         <div class="meta-content">
                             <div class="meta-label">Price</div>
                             <div class="meta-val empty" id="previewPrice">—</div>
@@ -1246,7 +1246,7 @@ $conn->close();
             });
 
             wire('publishers', 'previewPub', '—');
-            wire('price', 'previewPrice', '—', v => v ? 'PKR ' + v : '');
+            wire('price', 'previewPrice', '—', v => v ? '₹' + v : '');
             wire('length', 'previewPages', '—', v => v ? v + ' pages' : '');
 
             /* ── Image upload + preview ─────────────────── */
