@@ -89,7 +89,7 @@ function navItem(string $icon, string $label, array $subLinks = [], string $curr
         <div class="logo-icon">
             <!-- <i class='bx bx-book-heart'></i> -->
             <!-- <i class='bx bxs-book-alt'></i> -->
-            <img src="../../uploads/logos/logotest.png" alt="Logo"
+            <img src="https://professionalpublicationservice.com/uploads/logos/logotest.png" alt="Logo"
                 style="width: 80px; height: 80px; object-fit: contain;">
 
         </div>
