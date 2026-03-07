@@ -133,6 +133,7 @@ function navItem(string $icon, string $label, array $subLinks = [], string $curr
             ['href' => $root_url . 'Services.php', 'label' => 'Add Services'],
             ['href' => $root_url . 'add_logo.php', 'label' => 'Add Logo'],
             ['href' => $root_url . 'change_password.php', 'label' => 'Change Password'],
+            ['href' => 'https://professionalpublicationservice.com', 'label' => 'Home page '],
 
         ], $currentPage); ?>
 
@@ -272,6 +273,13 @@ function navItem(string $icon, string $label, array $subLinks = [], string $curr
             <!-- <div class="topbar-badge">
                 <i class='bx bx-search'></i>
             </div> -->
+            <!-- Go to home page -->
+            <div class="topbar-home">
+                <a href="https://professionalpublicationservice.com" style="color: inherit">
+                    <i class='bx bx-home'></i>
+                </a>
+            </div>
+
             <div class="topbar-user">
                 <div class="topbar-avatar"><?= $initials ?></div>
                 <span class="topbar-username"><?= $username ?></span>

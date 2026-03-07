@@ -36,6 +36,10 @@ body {
   min-height: 100vh;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* ─── SIDEBAR ─────────────────────────────────── */
 .sidebar {
   position: fixed;
@@ -526,6 +530,25 @@ li.showMenu .sub-menu {
 .topbar-username {
   font-size: 13px;
   font-weight: 500;
+  color: #2d3748;
+}
+
+.topbar-home {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: #f7fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #718096;
+  font-size: 17px;
+  background: var(--main-bg);
+  transition: all var(--transition);
+}
+
+.topbar-home:hover {
+  background: #edf2f7;
   color: #2d3748;
 }
 
