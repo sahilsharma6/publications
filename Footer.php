@@ -30,10 +30,9 @@
                 <div style="display:flex; gap:10px; margin-top:20px;">
                     <?php
                     $socials = [
-                        ['fab fa-facebook-f', '#'],
-                        ['fab fa-twitter', '#'],
-                        ['fab fa-instagram', '#'],
-                        ['fab fa-linkedin-in', '#'],
+                        ['fab fa-facebook-f', 'https://www.facebook.com/share/1DNGiWUmuM/'],
+                        ['fab fa-instagram', 'https://www.instagram.com/professional_publications_serv?igsh=YXI2ZGd6aHluZzhy'],
+                        // ['fab fa-linkedin-in', '#'],
                     ];
                     foreach ($socials as [$ico, $url]): ?>
                         <a href="<?= $url ?>" style="
