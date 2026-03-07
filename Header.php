@@ -483,6 +483,31 @@ $userName = $_SESSION['username'] ?? 'Account';
                     <i class="fas fa-book-open"></i> Books
                 </a>
             </li>
+            <li>
+                <a href="./journal-development.php"
+                    class="<?= $currentPage === 'journal-development.php' ? 'active' : '' ?> journal-dev-link">
+                    <i class="fas fa-journal-whills"></i> Journal Development
+                    <style>
+                        .journal-dev-link .debadge {
+                            position: relative;
+                        }
+
+                        .nav-links a .debadge {
+                            position: absolute;
+                            top: -6px;
+                            right: -10px;
+                            font-size: 9px;
+                            font-weight: 700;
+                            padding: 2px 6px;
+                            background: rgba(201, 146, 10, .15);
+                            color: var(--accent2);
+                            border-radius: 99px;
+                            margin-left: 6px;
+                        }
+                    </style>
+                    <span class="debadge">New</span>
+                </a>
+            </li>
             <!-- <li class="has-drop">
                 <a href="#" class="<?= in_array($currentPage, ['services.php']) ? 'active' : '' ?>">
                     <i class="fas fa-layer-group"></i> Services
@@ -537,12 +562,15 @@ $userName = $_SESSION['username'] ?? 'Account';
     <a href="./books.php" class="drawer-link <?= $currentPage === 'books.php' ? 'active' : '' ?>">
         <i class="fas fa-book-open"></i>
         <span class="dlbl">Books</span>
-        <span class="dbadge">New</span>
     </a>
 
+    <a href="./journal-development.php"
+        class="drawer-link <?= $currentPage === 'journal-development.php' ? 'active' : '' ?>">
+        <i class="fas fa-journal-whills"></i>
+        <span class="dlbl">Journal Development</span>
+        <span class="dbadge">New</span>
 
-
-
+    </a>
 
     <div class="drawer-divider"></div>
 
