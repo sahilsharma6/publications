@@ -7,44 +7,104 @@
 
 $faqs = [
     [
-        'q' => 'Do you help publish in Scopus indexed journals?',
-        'a' => 'Yes. We assist researchers in preparing manuscripts and provide guidance for submission to Scopus indexed journals according to journal guidelines.',
-        'icon' => 'fas fa-database',
+        'icon' => 'fas fa-cogs',
+        'q' => '1. What services does Professional Publication Services provide?',
+        'a' => 'We offer comprehensive academic support including research paper writing, case report writing, thesis and dissertation writing, statistical analysis, plagiarism checking, book writing, journal publication support, and journal development services.'
     ],
     [
-        'q' => 'Do you provide plagiarism reports?',
-        'a' => 'Yes. We provide detailed plagiarism reports and similarity checks to ensure originality before journal submission.',
-        'icon' => 'fas fa-shield-alt',
+        'icon' => 'fas fa-users',
+        'q' => '2. Who can use your services?',
+        'a' => 'Our services are designed for doctors, researchers, academicians, postgraduate students, and research scholars across various disciplines.'
     ],
     [
-        'q' => 'Do you convert thesis into research papers?',
-        'a' => 'Yes. We specialize in thesis-to-research paper conversion suitable for journal publication.',
-        'icon' => 'fas fa-file-alt',
+        'icon' => 'fas fa-book-open',
+        'q' => '3. Do you help publish research papers in indexed journals?',
+        'a' => 'Yes. We provide guidance and support for submitting manuscripts to reputed indexed journals such as Scopus, PubMed, Web of Science, and UGC-CARE journals.'
     ],
     [
-        'q' => 'Do you help in journal selection?',
-        'a' => 'Yes. Our experts help identify suitable indexed journals based on your research topic and scope.',
-        'icon' => 'fas fa-search',
+        'icon' => 'fas fa-pen-nib',
+        'q' => '4. Do you provide research paper writing services?',
+        'a' => 'Yes. Our experts assist in preparing well-structured research papers following international journal guidelines.'
     ],
     [
-        'q' => 'Do you provide statistical analysis?',
-        'a' => 'Yes. We provide biostatistical analysis, data interpretation, and result presentation.',
+        'icon' => 'fas fa-sync',
+        'q' => '5. Can you help convert my thesis into a research paper?',
+        'a' => 'Yes. We specialize in thesis-to-research paper conversion, making it suitable for journal publication.'
+    ],
+    [
+        'icon' => 'fas fa-heartbeat',
+        'q' => '6. Do you write medical case reports and case series?',
+        'a' => 'Yes. We assist in preparing detailed medical case reports and case series manuscripts according to journal standards.'
+    ],
+    [
         'icon' => 'fas fa-chart-bar',
+        'q' => '7. Do you provide statistical analysis for research data?',
+        'a' => 'Yes. We provide biostatistical analysis, data interpretation, and graphical presentation of results for research studies.'
     ],
     [
-        'q' => 'Do you help with case reports and systematic reviews?',
-        'a' => 'Yes. We assist in preparing case reports, case series, systematic reviews, and meta-analyses.',
-        'icon' => 'fas fa-microscope',
+        'icon' => 'fas fa-shield-alt',
+        'q' => '8. Do you provide plagiarism checking services?',
+        'a' => 'Yes. We provide plagiarism reports and similarity reduction support to ensure manuscripts meet journal requirements.'
     ],
     [
-        'q' => 'How long does manuscript preparation take?',
-        'a' => 'The timeline depends on the complexity of the research, but most projects are completed within 7–21 days.',
+        'icon' => 'fas fa-file-alt',
+        'q' => '9. Do you help with synopsis writing for research projects?',
+        'a' => 'Yes. We assist in preparing structured and concise research synopses for postgraduate and doctoral research.'
+    ],
+    [
+        'icon' => 'fas fa-graduation-cap',
+        'q' => '10. Do you provide thesis or dissertation writing support?',
+        'a' => 'Yes. We offer comprehensive assistance in thesis and dissertation preparation for various academic disciplines.'
+    ],
+    [
+        'icon' => 'fas fa-microphone',
+        'q' => '11. Do you assist with conference paper preparation?',
+        'a' => 'Yes. We help prepare conference abstracts and research papers for national and international conferences.'
+    ],
+    [
+        'icon' => 'fas fa-book',
+        'q' => '12. Do you help in writing academic or scientific books?',
+        'a' => 'Yes. We assist authors in writing, editing, and publishing academic books and book chapters.'
+    ],
+    [
+        'icon' => 'fas fa-laptop-code',
+        'q' => '13. Do you provide journal development services?',
+        'a' => 'Yes. We provide support for developing academic journals, including website setup, editorial workflow, and indexing preparation.'
+    ],
+    [
         'icon' => 'fas fa-clock',
+        'q' => '14. How long does it take to complete a research manuscript?',
+        'a' => 'The timeline depends on the complexity of the project, but most manuscripts are completed within 7–21 days.'
     ],
     [
-        'q' => 'Is my research confidential?',
-        'a' => 'Yes. We maintain complete confidentiality and data security for all client manuscripts.',
         'icon' => 'fas fa-lock',
+        'q' => '15. Is my research information confidential?',
+        'a' => 'Yes. We maintain strict confidentiality and data protection for all research materials and manuscripts.'
+    ],
+    [
+        'icon' => 'fas fa-search',
+        'q' => '16. Do you provide support for systematic reviews and meta-analyses?',
+        'a' => 'Yes. We assist researchers in preparing systematic reviews and meta-analysis manuscripts.'
+    ],
+    [
+        'icon' => 'fas fa-filter',
+        'q' => '17. Can you help select a suitable journal for my research?',
+        'a' => 'Yes. Our experts help identify appropriate journals based on your research topic and scope.'
+    ],
+    [
+        'icon' => 'fas fa-check-circle',
+        'q' => '18. Do you follow international publication guidelines?',
+        'a' => 'Yes. All manuscripts are prepared following standard academic and journal guidelines.'
+    ],
+    [
+        'icon' => 'fas fa-edit',
+        'q' => '19. Do you provide revisions if required?',
+        'a' => 'Yes. We provide revision support based on client feedback and journal reviewer comments.'
+    ],
+    [
+        'icon' => 'fas fa-envelope',
+        'q' => '20. How can I contact Professional Publication Services?',
+        'a' => 'You can contact us through our website contact form, email, or phone for consultation and service inquiries.'
     ],
 ];
 ?>
