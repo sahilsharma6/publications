@@ -63,6 +63,7 @@
                     ['fas fa-home', 'Home', './'],
                     ['fas fa-book-open', 'Books', './books.php'],
                     ['fas fa-envelope', 'Contact', './contact.php'],
+                    ['fas fa-info-circle', 'About Us', './about.php'],
                 ];
                 foreach ($links as [$ico, $lbl, $url]): ?>
                     <a href="<?= $url ?>" style="
