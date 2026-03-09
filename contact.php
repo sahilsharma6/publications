@@ -976,13 +976,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?php
                     $today = strtolower(date('l'));
                     $hours = [
-                        'Monday' => '9:00 AM – 6:00 PM',
-                        'Tuesday' => '9:00 AM – 6:00 PM',
-                        'Wednesday' => '9:00 AM – 6:00 PM',
-                        'Thursday' => '9:00 AM – 6:00 PM',
-                        'Friday' => '9:00 AM – 6:00 PM',
-                        'Saturday' => '10:00 AM – 3:00 PM',
-                        'Sunday' => 'Closed',
+                        'Monday' => '24 Hours',
+                        'Tuesday' => '24 Hours',
+                        'Wednesday' => '24 Hours',
+                        'Thursday' => '24 Hours',
+                        'Friday' => '24 Hours',
+                        'Saturday' => '24 Hours',
+                        'Sunday' => '24 Hours',
                     ];
                     foreach ($hours as $day => $time):
                         $isToday = strtolower($day) === $today;

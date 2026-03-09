@@ -1185,7 +1185,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <div class="reveal-right">
                 <div class="iv-card" style="margin-bottom:16px">
                     <div class="iv-card-inner">
-                        <div class="iv-card-tag">Our Mission</div>
+                        <div class="iv-card-tag">Our Idea </div>
                         <div class="iv-card-title">From Concept to Indexed Academic Journal</div>
                         <div class="iv-card-body">With our expertise in scientific publishing, editorial workflows, and
                             indexing preparation, we assist in creating journals that maintain high academic integrity
@@ -1194,7 +1194,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                 </div>
                 <div class="iv-stats">
                     <div class="iv-stat">
-                        <div class="iv-stat-num">4<sup>yr</sup></div>
+                        <div class="iv-stat-num">6<sup>yr</sup></div>
                         <div class="iv-stat-lbl">Experience</div>
                     </div>
                     <div class="iv-stat">
@@ -1202,8 +1202,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                         <div class="iv-stat-lbl">Clients</div>
                     </div>
                     <div class="iv-stat">
-                        <div class="iv-stat-num">7<sup>+</sup></div>
-                        <div class="iv-stat-lbl">Disciplines</div>
+                        <div class="iv-stat-num">3000<sup>+</sup></div>
+                        <div class="iv-stat-lbl">Journals</div>
                     </div>
                     <div class="iv-stat">
                         <div class="iv-stat-num">5<sup>★</sup></div>
@@ -1365,7 +1365,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <div class="reveal-right">
                 <div class="idx-eyebrow">Why Choose Us</div>
                 <h2 class="idx-h2" style="color:#faf7f2; font-size:clamp(24px,2.8vw,38px); margin-bottom:24px">Why Our
-                    <em>Journal Development</em> Services</h2>
+                    <em>Journal Development</em> Services
+                </h2>
 
                 <div class="idx-reasons">
                     <div class="idx-reason">

@@ -1075,7 +1075,7 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($wa_msg);
             <!-- Cover column -->
             <div class="cover-column">
                 <div class="cover-frame" id="mainCoverFrame">
-                    <img src="../<?= htmlspecialchars($book['book_image'], ENT_QUOTES) ?>"
+                    <img src="./test/dashboard/<?= htmlspecialchars($book['book_image'], ENT_QUOTES) ?>"
                         alt="<?= htmlspecialchars($book['title'], ENT_QUOTES) ?>" id="mainCoverImg">
                     <div class="cover-zoom-hint">
                         <i class="fas fa-search-plus"></i> Click to zoom

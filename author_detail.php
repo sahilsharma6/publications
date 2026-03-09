@@ -35,7 +35,7 @@ $books = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
 
 // Image path
-$imgPath = "../uploads/authors/" . $author['image'];
+$imgPath = "./test/uploads/authors/" . $author['image'];
 $hasImg = !empty($author['image']) && file_exists($imgPath);
 $initial = strtoupper(substr($author['name'], 0, 1));
 ?>
@@ -768,7 +768,7 @@ $initial = strtoupper(substr($author['name'], 0, 1));
                         <?php else: ?>
                             <div class="books-list">
                                 <?php foreach ($books as $i => $book):
-                                    $coverPath = "../" . $book['img'];
+                                    $coverPath = "./test/dashboard/" . $book['img'];
                                     $hasCover = !empty($book['img']) && file_exists($coverPath);
                                     ?>
                                     <a href="book_details.php?id=<?= (int) $book['id'] ?>" class="book-row"

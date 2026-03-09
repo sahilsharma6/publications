@@ -1020,8 +1020,8 @@ $conn->close();
                 <!-- GRID VIEW -->
                 <div class="books-grid" id="booksGrid">
                     <?php foreach ($books as $i => $book):
-                        $imgPath = "../" . ($book['img'] ?? '');
-                        $hasImg = !empty($book['img']) && file_exists("../" . $book['img']);
+                        $imgPath = "./test/dashboard/" . ($book['img'] ?? '');
+                        $hasImg = !empty($book['img']) && file_exists("./test/dashboard/" . $book['img']);
                         ?>
                         <a href="book_details.php?id=<?= (int) $book['id'] ?>" class="book-card reveal"
                             style="transition-delay: <?= $i * 0.04 ?>s">

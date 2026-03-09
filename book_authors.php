@@ -32,7 +32,7 @@ $authors = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
 
 $totalAuthors = count($authors);
-$coverPath = '../' . $book['img'];
+$coverPath = './test/dashboard/' . $book['img'];
 $hasCover = !empty($book['img']) && file_exists($coverPath);
 ?>
 <!DOCTYPE html>
@@ -554,7 +554,7 @@ $hasCover = !empty($book['img']) && file_exists($coverPath);
 
             <?php else: ?>
                 <?php foreach ($authors as $i => $author):
-                    $imgPath = "../uploads/authors/" . $author['image'];
+                    $imgPath = "./test/uploads/authors/" . $author['image'];
                     $hasImg = !empty($author['image']) && file_exists($imgPath);
                     $initial = strtoupper(substr($author['name'], 0, 1));
                     ?>

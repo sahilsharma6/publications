@@ -24,7 +24,7 @@
                 <img src="./uploads/logos/logotest.png" alt="Logo"
                     style="height:52px; width:auto; margin-bottom:16px; filter:brightness(1.05);">
                 <p style="font-size:14px; line-height:1.75; color:rgba(250,247,242,.45); max-width:300px;">
-                    Dedicated to publishing excellence — connecting authors, ideas, and readers across disciplines.
+                    Dedicated to publishing excellence connecting authors, ideas, and readers worldwide.
                 </p>
                 <!-- Social icons -->
                 <div style="display:flex; gap:10px; margin-top:20px;">

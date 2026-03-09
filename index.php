@@ -94,11 +94,15 @@ $conn->close();
     }
 
     .slide-2 {
-      background: linear-gradient(135deg, #0a0d12 0%, #121a24 45%, #0f1e2e 100%);
+      /* background: linear-gradient(135deg, #0a0d12 0%, #121a24 45%, #0f1e2e 100%); */
+      background: linear-gradient(135deg, #0d0a06 0%, #1a1208 45%, #2a1a0a 100%);
+
     }
 
     .slide-3 {
-      background: linear-gradient(135deg, #0a0d08 0%, #12180e 45%, #1a2412 100%);
+      /* background: linear-gradient(135deg, #0a0d08 0%, #12180e 45%, #1a2412 100%); */
+      background: linear-gradient(135deg, #0d0a06 0%, #1a1208 45%, #2a1a0a 100%);
+
     }
 
     .slide-1::before {
@@ -112,14 +116,18 @@ $conn->close();
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 75% 40%, rgba(59, 130, 246, .2), transparent), radial-gradient(ellipse 40% 60% at 5% 90%, rgba(139, 92, 246, .1), transparent);
+      background: radial-gradient(ellipse 65% 80% at 80% 50%, rgba(181, 57, 15, .28), transparent), radial-gradient(ellipse 40% 60% at 5% 80%, rgba(201, 146, 10, .14), transparent);
+
+      /* background: radial-gradient(ellipse 60% 80% at 75% 40%, rgba(59, 130, 246, .2), transparent), radial-gradient(ellipse 40% 60% at 5% 90%, rgba(139, 92, 246, .1), transparent); */
     }
 
     .slide-3::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 72% 45%, rgba(16, 185, 129, .18), transparent), radial-gradient(ellipse 35% 55% at 5% 85%, rgba(201, 146, 10, .12), transparent);
+      background: radial-gradient(ellipse 65% 80% at 80% 50%, rgba(181, 57, 15, .28), transparent), radial-gradient(ellipse 40% 60% at 5% 80%, rgba(201, 146, 10, .14), transparent);
+
+      /* background: radial-gradient(ellipse 60% 80% at 72% 45%, rgba(16, 185, 129, .18), transparent), radial-gradient(ellipse 35% 55% at 5% 85%, rgba(201, 146, 10, .12), transparent); */
     }
 
     /* subtle grid */
@@ -1169,16 +1177,16 @@ $conn->close();
         <div class="hero-visual">
           <div class="stat-cluster">
             <div class="stat-card">
-              <div class="stat-num">500<sup>+</sup></div>
+              <div class="stat-num">3000<sup>+</sup></div>
               <div class="stat-lbl">Manuscripts</div>
             </div>
             <div class="stat-card">
-              <div class="stat-num">50<sup>+</sup></div>
+              <div class="stat-num">100<sup>+</sup></div>
               <div class="stat-lbl">Journals</div>
             </div>
             <div class="stat-card">
-              <div class="stat-num">98<sup>%</sup></div>
-              <div class="stat-lbl">Acceptance</div>
+              <div class="stat-num">99.5<sup>%</sup></div>
+              <div class="stat-lbl">Success Ratio</div>
             </div>
             <div class="stat-card">
               <div class="stat-num">5<sup>★</sup></div>
@@ -1206,7 +1214,7 @@ $conn->close();
         <div class="hero-visual">
           <div class="stat-cluster">
             <div class="stat-card">
-              <div class="stat-num">4<sup>yr</sup></div>
+              <div class="stat-num">6<sup>yr</sup></div>
               <div class="stat-lbl">Experience</div>
             </div>
             <div class="stat-card">
@@ -1286,8 +1294,8 @@ $conn->close();
             <?php if (!empty($catBooks)): ?>
               <div class="books-grid">
                 <?php foreach ($catBooks as $bi => $book):
-                  $imgPath = "../" . ($book['img'] ?? '');
-                  $hasImg = !empty($book['img']) && file_exists("../" . $book['img']);
+                  $imgPath = "./test/dashboard/" . ($book['img'] ?? '');
+                  $hasImg = !empty($book['img']) && file_exists("./test/dashboard/" . $book['img']);
                   ?>
                   <a href="book_details.php?id=<?= (int) $book['id'] ?>" class="book-card reveal"
                     style="transition-delay:<?= $bi * .05 ?>s">
