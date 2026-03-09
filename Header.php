@@ -508,6 +508,13 @@ $userName = $_SESSION['username'] ?? 'Account';
                     <span class="debadge">New</span>
                 </a>
             </li>
+            <li>
+                <a href="./about.php" class=" <?= $currentPage === 'about.php' ? 'active' : '' ?>">
+                    <i class="fas fa-info-circle"></i>
+                    <span class="dlbl">About Us</span>
+                </a>
+
+            </li>
             <!-- <li class="has-drop">
                 <a href="#" class="<?= in_array($currentPage, ['services.php']) ? 'active' : '' ?>">
                     <i class="fas fa-layer-group"></i> Services
@@ -570,6 +577,10 @@ $userName = $_SESSION['username'] ?? 'Account';
         <span class="dlbl">Journal Development</span>
         <span class="dbadge">New</span>
 
+    </a>
+    <a href="./about.php" class="drawer-link <?= $currentPage === 'about.php' ? 'active' : '' ?>">
+        <i class="fas fa-info-circle"></i>
+        <span class="dlbl">About Us</span>
     </a>
 
     <div class="drawer-divider"></div>
