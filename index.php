@@ -1147,7 +1147,7 @@ $conn->close();
               <div class="stat-lbl">Authors</div>
             </div>
             <div class="stat-card">
-              <div class="stat-num">1K<sup>+</sup></div>
+              <div class="stat-num">1L<sup>+</sup></div>
               <div class="stat-lbl">Clients</div>
             </div>
             <div class="stat-card">
@@ -1226,7 +1226,7 @@ $conn->close();
               <div class="stat-lbl">Confidential</div>
             </div>
             <div class="stat-card">
-              <div class="stat-num">1K<sup>+</sup></div>
+              <div class="stat-num">1L<sup>+</sup></div>
               <div class="stat-lbl">Clients</div>
             </div>
           </div>
@@ -1338,7 +1338,7 @@ $conn->close();
   <!-- ══════════════════════════════════════════════
      ABOUT
 ══════════════════════════════════════════════ -->
-  <section class="about-sec">
+  <!-- <section class="about-sec">
     <div class="about-inner">
       <div class="about-img-wrap reveal-left">
         <img src="../uploads/assets/about-img.png" alt="About us" height="500px" loading="lazy">
@@ -1369,15 +1369,64 @@ $conn->close();
             <div class="as-lbl">Clients</div>
           </div>
           <div class="as-item">
-            <div class="as-num">4<sup>yr</sup></div>
+            <div class="as-num">6<sup>yr</sup></div>
             <div class="as-lbl">Experience</div>
           </div>
         </div>
         <a href="contact.php" class="btn-about">Get in Touch &nbsp;<i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
-  </section>
+  </section> -->
 
+  <!-- ══════════════════════════════════════════════
+   ABOUT  — replace your existing about-sec in index.php with this
+══════════════════════════════════════════════ -->
+  <section class="about-sec">
+    <div class="about-inner">
+
+      <div class="about-img-wrap reveal-left">
+        <img src="./uploads/assets/about-img.png" alt="About us" height="500px" loading="lazy">
+      </div>
+
+      <div class="reveal-right">
+        <div class="about-eyebrow">Who We Are</div>
+        <h2 class="about-h2">About <em>Our</em><br>Publication House</h2>
+
+        <p class="about-p">Founded in 2020, Professional Publication Services is a trusted academic support organization
+          helping researchers, doctors, and scientists worldwide. Our expert team — including doctors, faculty, and
+          scientific writers — covers Medical Sciences, Dental Sciences, Nursing, Paramedical, and Life Sciences.</p>
+
+        <p class="about-p">With 6+ years of experience, we have served over 1 Lakh clients and assisted in publishing
+          50+ academic books and numerous peer-reviewed research papers — delivering quality, integrity, and
+          confidentiality at every step.</p>
+
+        <div class="about-stats">
+          <div class="as-item">
+            <div class="as-num"><?= number_format($totalBooks) ?><sup>+</sup></div>
+            <div class="as-lbl">Books</div>
+          </div>
+          <div class="as-item">
+            <div class="as-num">1L<sup>+</sup></div>
+            <div class="as-lbl">Clients</div>
+          </div>
+          <div class="as-item">
+            <div class="as-num">6<sup>yr</sup></div>
+            <div class="as-lbl">Experience</div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:28px;">
+          <a href="about.php" class="btn-about">
+            Read More &nbsp;<i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="contact.php" class="btn-about" style="border-color:rgba(181,57,15,.5); color:rgba(250,247,242,.7);">
+            <i class="fas fa-paper-plane"></i>&nbsp; Get in Touch
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
   <!-- ══════════════════════════════════════════════
      SERVICES

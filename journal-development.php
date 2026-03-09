@@ -1198,7 +1198,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                         <div class="iv-stat-lbl">Experience</div>
                     </div>
                     <div class="iv-stat">
-                        <div class="iv-stat-num">1K<sup>+</sup></div>
+                        <div class="iv-stat-num">1L<sup>+</sup></div>
                         <div class="iv-stat-lbl">Clients</div>
                     </div>
                     <div class="iv-stat">
