@@ -37,7 +37,7 @@ $stmt = $conn->prepare("SELECT a.id, a.name, a.title, a.description, a.image
                         FROM authors a
                         JOIN book_authors ba ON ba.author_id = a.id
                         WHERE ba.book_id = ?
-                        ORDER BY a.name ASC LIMIT 2");
+                        ORDER BY a.id ASC LIMIT 2");
 $stmt->bind_param("i", $book_id);
 $stmt->execute();
 $authors = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -1261,7 +1261,7 @@ $whatsapp_url = "https://wa.me/$whatsapp_number?text=" . urlencode($wa_msg);
                     <?php foreach ($authors as $i => $author):
                         if (empty($author['name']))
                             continue; // skip broken rows
-                        $imgPath = "../uploads/authors/" . ($author['image'] ?? '');
+                        $imgPath = "./test/uploads/authors/" . ($author['image'] ?? '');
                         $hasImg = !empty($author['image']) && file_exists($imgPath);
                         $initial = strtoupper(substr($author['name'] ?? 'A', 0, 1));
                         ?>

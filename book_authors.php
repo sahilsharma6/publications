@@ -25,7 +25,7 @@ if (!$book) {
 // Fetch all authors for this book
 $stmt = $conn->prepare("SELECT a.id, a.name, a.title, a.description, a.image
                         FROM authors a JOIN book_authors ba ON ba.author_id = a.id
-                        WHERE ba.book_id = ? ORDER BY a.name ASC");
+                        WHERE ba.book_id = ? ORDER BY a.id ASC");
 $stmt->bind_param("i", $book_id);
 $stmt->execute();
 $authors = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
