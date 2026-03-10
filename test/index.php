@@ -70,327 +70,6 @@ $conn->close();
             overflow-x: hidden;
         }
 
-        /* ════════════════════════════════════
-       HERO
-    ════════════════════════════════════ */
-        .hero-wrap {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-slide {
-            min-height: 90vh;
-            display: none;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-slide.active-slide {
-            display: flex;
-        }
-
-        .slide-1 {
-            background: linear-gradient(135deg, #0d0a06 0%, #1a1208 45%, #2a1a0a 100%);
-        }
-
-        .slide-2 {
-            background: linear-gradient(135deg, #0a0d12 0%, #121a24 45%, #0f1e2e 100%);
-        }
-
-        .slide-3 {
-            background: linear-gradient(135deg, #0a0d08 0%, #12180e 45%, #1a2412 100%);
-        }
-
-        .slide-1::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 65% 80% at 80% 50%, rgba(181, 57, 15, .28), transparent), radial-gradient(ellipse 40% 60% at 5% 80%, rgba(201, 146, 10, .14), transparent);
-        }
-
-        .slide-2::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 60% 80% at 75% 40%, rgba(59, 130, 246, .2), transparent), radial-gradient(ellipse 40% 60% at 5% 90%, rgba(139, 92, 246, .1), transparent);
-        }
-
-        .slide-3::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 60% 80% at 72% 45%, rgba(16, 185, 129, .18), transparent), radial-gradient(ellipse 35% 55% at 5% 85%, rgba(201, 146, 10, .12), transparent);
-        }
-
-        /* subtle grid */
-        .slide-grid {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px);
-            background-size: 48px 48px;
-        }
-
-        .hero-inner {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 28px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 56px;
-            align-items: center;
-        }
-
-        @media (max-width: 860px) {
-            .hero-inner {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-
-            .hero-visual {
-                display: none;
-            }
-        }
-
-        .hero-text {
-            padding: 90px 0;
-        }
-
-        @media (max-width: 860px) {
-            .hero-text {
-                padding: 64px 0 56px;
-            }
-        }
-
-        .hero-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--accent2);
-            margin-bottom: 18px;
-        }
-
-        .hero-eyebrow::before,
-        .hero-eyebrow::after {
-            content: '';
-            display: block;
-            width: 20px;
-            height: 1px;
-            background: currentColor;
-            opacity: .6;
-        }
-
-        .hero-h1 {
-            font-family: "Cormorant Garamond", Georgia, serif;
-            font-size: clamp(40px, 5.5vw, 72px);
-            font-weight: 700;
-            line-height: 1.04;
-            letter-spacing: -.8px;
-            color: #faf7f2;
-            margin-bottom: 18px;
-        }
-
-        .hero-h1 em {
-            font-style: italic;
-            color: rgba(250, 247, 242, .42);
-        }
-
-        .hero-p {
-            font-size: 16px;
-            color: rgba(250, 247, 242, .48);
-            line-height: 1.72;
-            max-width: 420px;
-            margin-bottom: 34px;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn-hp {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
-            border-radius: var(--r);
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: .2px;
-            text-decoration: none;
-            transition: all var(--t);
-            font-family: "Outfit", sans-serif;
-            white-space: nowrap;
-        }
-
-        .btn-hp-solid {
-            background: var(--accent);
-            color: #fff;
-            box-shadow: 0 4px 20px rgba(181, 57, 15, .4);
-        }
-
-        .btn-hp-solid:hover {
-            background: #9b2e08;
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(181, 57, 15, .5);
-        }
-
-        .btn-hp-ghost {
-            border: 1.5px solid rgba(255, 255, 255, .18);
-            color: rgba(250, 247, 242, .78);
-            background: transparent;
-        }
-
-        .btn-hp-ghost:hover {
-            border-color: rgba(255, 255, 255, .45);
-            color: #fff;
-            background: rgba(255, 255, 255, .06);
-        }
-
-        /* Stats cluster on hero right */
-        .hero-visual {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .stat-cluster {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, .07);
-            border: 1px solid rgba(255, 255, 255, .1);
-            border-radius: var(--r-lg);
-            padding: 22px 20px;
-            backdrop-filter: blur(8px);
-            text-align: center;
-            transition: all var(--t);
-        }
-
-        .stat-card:hover {
-            background: rgba(255, 255, 255, .11);
-            transform: translateY(-3px);
-        }
-
-        .stat-card:nth-child(2) {
-            transform: translateY(16px);
-        }
-
-        .stat-card:nth-child(2):hover {
-            transform: translateY(12px);
-        }
-
-        .stat-card:nth-child(4) {
-            transform: translateY(-12px);
-        }
-
-        .stat-card:nth-child(4):hover {
-            transform: translateY(-16px);
-        }
-
-        .stat-num {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 44px;
-            font-weight: 700;
-            color: #faf7f2;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-
-        .stat-num sup {
-            font-size: 20px;
-            color: var(--accent2);
-            vertical-align: super;
-        }
-
-        .stat-lbl {
-            font-size: 11px;
-            font-weight: 700;
-            color: rgba(250, 247, 242, .38);
-            text-transform: uppercase;
-            letter-spacing: .8px;
-        }
-
-        /* Carousel controls */
-        .hero-ctrl {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, .1);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, .16);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 15px;
-            z-index: 10;
-            cursor: pointer;
-            transition: all var(--t);
-        }
-
-        .hero-ctrl:hover {
-            background: rgba(255, 255, 255, .2);
-        }
-
-        .hero-ctrl-prev {
-            left: 20px;
-        }
-
-        .hero-ctrl-next {
-            right: 20px;
-        }
-
-        /* Dots */
-        .hero-dots {
-            position: absolute;
-            bottom: 26px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-
-        .hero-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 99px;
-            background: rgba(255, 255, 255, .28);
-            border: none;
-            cursor: pointer;
-            transition: all .4s var(--t);
-        }
-
-        .hero-dot.active {
-            width: 28px;
-            background: var(--accent2);
-        }
-
-        /* bottom accent rule */
-        .hero-wrap::after {
-            content: '';
-            display: block;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent), var(--accent2), transparent);
-        }
 
         /* ════════════════════════════════════
        SHARED SECTION STYLES
@@ -1111,9 +790,8 @@ $conn->close();
     <!-- ══════════════════════════════════════════════
      HERO
 ══════════════════════════════════════════════ -->
-    <div class="hero-wrap" id="heroWrap">
+    <!-- <div class="hero-wrap" id="heroWrap">
 
-        <!-- Slide 1 -->
         <div class="hero-slide slide-1 active-slide">
             <div class="slide-grid"></div>
             <div class="hero-inner">
@@ -1152,7 +830,6 @@ $conn->close();
             </div>
         </div>
 
-        <!-- Slide 2 -->
         <div class="hero-slide slide-2">
             <div class="slide-grid"></div>
             <div class="hero-inner">
@@ -1191,7 +868,6 @@ $conn->close();
             </div>
         </div>
 
-        <!-- Slide 3 -->
         <div class="hero-slide slide-3">
             <div class="slide-grid"></div>
             <div class="hero-inner">
@@ -1229,7 +905,6 @@ $conn->close();
             </div>
         </div>
 
-        <!-- Controls -->
         <div class="hero-ctrl hero-ctrl-prev" onclick="heroMove(-1)"><i class="fas fa-chevron-left"></i></div>
         <div class="hero-ctrl hero-ctrl-next" onclick="heroMove(1)"><i class="fas fa-chevron-right"></i></div>
 
@@ -1238,7 +913,9 @@ $conn->close();
             <button class="hero-dot" onclick="heroGoto(1)"></button>
             <button class="hero-dot" onclick="heroGoto(2)"></button>
         </div>
-    </div>
+    </div> -->
+
+    <?php include '../utils/hero-home.php'; ?>
 
 
     <!-- ══════════════════════════════════════════════
@@ -1426,22 +1103,7 @@ $conn->close();
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        /* ─── Hero carousel ─────────────────────────────────────────── */
-        const hSlides = document.querySelectorAll('.hero-slide');
-        const hDots = document.querySelectorAll('.hero-dot');
-        let hCur = 0, hTimer;
 
-        function showSlide(n) {
-            hSlides[hCur].classList.remove('active-slide');
-            hDots[hCur].classList.remove('active');
-            hCur = (n + hSlides.length) % hSlides.length;
-            hSlides[hCur].classList.add('active-slide');
-            hDots[hCur].classList.add('active');
-        }
-        function heroMove(d) { clearInterval(hTimer); showSlide(hCur + d); startAuto(); }
-        function heroGoto(n) { clearInterval(hTimer); showSlide(n); startAuto(); }
-        function startAuto() { hTimer = setInterval(() => showSlide(hCur + 1), 5200); }
-        startAuto();
 
         /* ─── Book tabs ─────────────────────────────────────────────── */
         function switchTab(btn, panelId) {
