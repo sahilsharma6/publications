@@ -219,9 +219,9 @@ $conn->close();
                         </label>
                         <textarea id="author_desc" name="description" class="form-input no-icon" rows="4"
                             placeholder="Write a short biography of the author…"
-                            maxlength="1000"><?= htmlspecialchars($oldPost['description'] ?? '', ENT_QUOTES) ?></textarea>
+                            maxlength="2000"><?= htmlspecialchars($oldPost['description'] ?? '', ENT_QUOTES) ?></textarea>
                         <span class="char-count" id="descCount">
-                            <?= mb_strlen($oldPost['description'] ?? '') ?> / 1000
+                            <?= mb_strlen($oldPost['description'] ?? '') ?> / 2000
                         </span>
                     </div>
 
@@ -423,7 +423,7 @@ $conn->close();
                 update();
             }
             counter('author_name', 'nameCount', 120);
-            counter('author_desc', 'descCount', 1000);
+            counter('author_desc', 'descCount', 2000);
 
             /* ── Remove error class on type ─────────────── */
             document.querySelectorAll('.form-input').forEach(i => {

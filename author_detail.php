@@ -132,7 +132,8 @@ $initial = strtoupper(substr($author['name'], 0, 1));
 
         .profile-inner {
             display: flex;
-            align-items: flex-end;
+            /* align-items: flex-end; */
+            align-items: center;
             gap: 32px;
             flex-wrap: wrap;
             padding-bottom: 0;
@@ -141,7 +142,6 @@ $initial = strtoupper(substr($author['name'], 0, 1));
         /* Avatar */
         .profile-avatar-wrap {
             flex-shrink: 0;
-            margin-bottom: -48px;
         }
 
         .profile-avatar {
