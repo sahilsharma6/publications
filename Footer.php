@@ -89,7 +89,7 @@
                 </div>
                 <?php
                 $contacts = [
-                    ['fas fa-phone', '+91 97527 47384, +91 87082 99825,'],
+                    ['fas fa-phone', '+91-9752747384, +91-8708299825, +91-9302423730'],
                     ['fas fa-envelope', 'info@professionalpublicationservice.com'],
                     ['fas fa-map-marker-alt', '7895+7GR, Bhopal-Indore Highway Bhainsakhedi, Bairagarh, Bhopal, Madhya Pradesh 462030'],
                 ];
