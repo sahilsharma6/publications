@@ -256,10 +256,10 @@
         width: 88%;
         padding-top: 88%;
         border-radius: 50%;
-        background: radial-gradient(ellipse 70% 70% at 50% 50%,
+        /* background: radial-gradient(ellipse 70% 70% at 50% 50%,
                 rgba(201, 146, 10, .18) 0%,
                 rgba(181, 57, 15, .08) 55%,
-                transparent 100%);
+                transparent 100%); */
         animation: globePulse 4s ease-in-out infinite;
     }
 
@@ -278,7 +278,7 @@
     }
 
     .globe-ring-border {
-        position: absolute;
+        /* position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -286,7 +286,7 @@
         padding-top: 92%;
         border-radius: 50%;
         border: 1px solid rgba(201, 146, 10, .2);
-        animation: globeRotate 18s linear infinite;
+        animation: globeRotate 18s linear infinite; */
     }
 
     @keyframes globeRotate {
@@ -332,6 +332,8 @@
         white-space: nowrap;
     }
 
+
+
     .gs-num {
         font-family: "Cormorant Garamond", serif;
         font-size: 22px;
@@ -341,7 +343,7 @@
     }
 
     .gs-num sup {
-        font-size: 11px;
+        font-size: 12px;
         color: var(--accent2);
         vertical-align: super;
     }
@@ -493,7 +495,7 @@
                 <div class="hero-globe-wrap">
                     <div class="globe-ring"></div>
                     <div class="globe-ring-border"></div>
-                    <img class="hero-globe-img" src="./uploads/assets/globe.png" onerror="this.style.display='none'"
+                    <img class="hero-globe-img" src="./uploads/assets/globe1.png" onerror="this.style.display='none'"
                         alt="Global Research Community">
                     <!-- Fallback SVG globe if no image -->
                     <svg class="hero-globe-img" style="display:none" id="globeSvg1" viewBox="0 0 400 400" fill="none"
@@ -542,7 +544,7 @@
                     books for researchers and academicians worldwide.</p>
                 <div class="hero-pills">
                     <span class="hero-pill"><i class="fas fa-book"></i> 50+ Books Published</span>
-                    <span class="hero-pill"><i class="fas fa-user-edit"></i> 120+ Authors Assisted</span>
+                    <span class="hero-pill"><i class="fas fa-user-edit"></i> 12k+ Authors Assisted</span>
                     <span class="hero-pill"><i class="fas fa-file-alt"></i> 300+ Chapters Edited</span>
                     <span class="hero-pill"><i class="fas fa-star"></i> 95% Author Satisfaction</span>
                 </div>
@@ -555,8 +557,8 @@
                 <div class="hero-globe-wrap">
                     <div class="globe-ring"></div>
                     <div class="globe-ring-border"></div>
-                    <img class="hero-globe-img" src="./uploads/assets/globe.png" onerror="this.style.display='none'"
-                        alt="Academic Publishing">
+                    <img class="hero-globe-img" src="./uploads/assets/globe1.png" onerror=" this.style.display='none'"
+                        alt=" Academic Publishing">
                     <!-- Fallback SVG globe if no image -->
                     <svg class="hero-globe-img" style="display:none" id="globeSvg1" viewBox="0 0 400 400" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -577,7 +579,7 @@
                         <div class="gs-lbl">Books</div>
                     </div>
                     <div class="globe-stat globe-stat-tr">
-                        <div class="gs-num">120<sup>+</sup></div>
+                        <div class="gs-num">12k<sup>+</sup></div>
                         <div class="gs-lbl">Authors</div>
                     </div>
                     <div class="globe-stat globe-stat-bl">
@@ -618,7 +620,7 @@
                 <div class="hero-globe-wrap">
                     <div class="globe-ring"></div>
                     <div class="globe-ring-border"></div>
-                    <img class="hero-globe-img" src="./uploads/assets/globe.png" onerror="this.style.display='none'"
+                    <img class="hero-globe-img" src="./uploads/assets/globe1.png" onerror="this.style.display='none'"
                         alt="Research Publication">
                     <!-- Fallback SVG globe if no image -->
                     <svg class="hero-globe-img" style="display:none" id="globeSvg1" viewBox="0 0 400 400" fill="none"
@@ -681,7 +683,7 @@
                 <div class="hero-globe-wrap">
                     <div class="globe-ring"></div>
                     <div class="globe-ring-border"></div>
-                    <img class="hero-globe-img" src="./uploads/assets/globe.png" alt="Global Research Community">
+                    <img class="hero-globe-img" src="./uploads/assets/globe1.png" alt="Global Research Community">
                     <!-- Fallback SVG globe if no image -->
                     <svg class="hero-globe-img" style="display:none" id="globeSvg1" viewBox="0 0 400 400" fill="none"
                         xmlns="http://www.w3.org/2000/svg">

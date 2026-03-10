@@ -3,8 +3,13 @@ include 'db.php';
 session_start();
 
 $contactInfo = [
-    'address' => '7895+7GR, Bhopal-Indore Highway Bhainsakhedi, Bairagarh, Bhopal, Madhya Pradesh 462030',
-    'phone' => '+91-8708299825, +91-9752747384',
+    // 'address' => '7895+7GR, Bhopal-Indore Highway Bhainsakhedi, Bairagarh, Bhopal, Madhya Pradesh 462030',
+    'addresses' => [
+        'Bhopal Office' => '7895+7GR, Bhopal-Indore Highway Bhainsakhedi, Bairagarh, Bhopal, Madhya Pradesh 462030',
+        'Kanpur Office' => 'Naubasta, Galla Mandi, Kanpur, Uttar Pradesh',
+        'West Bengal Office' => 'Bankura Town, Bankura, West Bengal'
+    ],
+    'phone' => '+91-8708299825, +91-9752747384, +91-9302423730',
     'email' => 'info@professionalpublicationservice.com',
     'whatsapp' => '+919752747384',
 ];
@@ -909,9 +914,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="info-row">
                         <div class="info-row-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="info-row-body">
-                            <div class="info-row-label">Address</div>
+                            <div class="info-row-label">Addresses</div>
                             <div class="info-row-val">
-                                <?= htmlspecialchars($contactInfo['address'], ENT_QUOTES) ?>
+                                <!-- <?= htmlspecialchars($contactInfo['address'], ENT_QUOTES) ?> -->
+                                <?php foreach ($contactInfo['addresses'] as $loc => $addr): ?>
+                                    <strong>
+                                        <?= htmlspecialchars($loc, ENT_QUOTES) ?>:
+                                    </strong><br>
+                                    <?= htmlspecialchars($addr, ENT_QUOTES) ?><br><br>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
