@@ -650,9 +650,9 @@ $currentImg = $old['img'] ?? $book['img'] ?? null;
                             <span class="hint">optional</span>
                         </label>
                         <textarea id="description" name="description" class="form-input no-icon"
-                            rows="4" maxlength="2000"
+                            rows="4" maxlength="5000"
                             placeholder="Write a short synopsis or overview of the book…"><?= htmlspecialchars($old['description'] ?? '', ENT_QUOTES) ?></textarea>
-                        <span class="char-count" id="descCount"><?= mb_strlen($old['description'] ?? '') ?> / 2000</span>
+                        <span class="char-count" id="descCount"><?= mb_strlen($old['description'] ?? '') ?> / 5000</span>
                     </div>
 
                     <!-- ── Cover image ── -->
@@ -858,7 +858,7 @@ $currentImg = $old['img'] ?? $book['img'] ?? null;
             upd();
         }
         counter('title', 'titleCount', 255);
-        counter('description', 'descCount', 2000);
+        counter('description', 'descCount', 5000);
 
         /* ── Change badges ──────────────────────────── */
         function trackChange(inputId, badgeId) {

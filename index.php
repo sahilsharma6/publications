@@ -1335,52 +1335,7 @@ $conn->close();
   </section>
 
 
-  <!-- ══════════════════════════════════════════════
-     ABOUT
-══════════════════════════════════════════════ -->
-  <!-- <section class="about-sec">
-    <div class="about-inner">
-      <div class="about-img-wrap reveal-left">
-        <img src="../uploads/assets/about-img.png" alt="About us" height="500px" loading="lazy">
-      </div>
-      <div class="reveal-right">
-        <div class="about-eyebrow">Who We Are</div>
-        <h2 class="about-h2">About <em>Our</em><br>Publication House</h2>
-        <p class="about-p">Founded in 2020, Professional Publication Services has rapidly established itself as
-          a trusted provider in the academic and scientific writing industry. Our team includes esteemed
-          doctors, faculty members and experienced scientists from a wide range of fields, including Medical
-          Sciences, Dental Sciences, Nursing, Paramedical, and Life Sciences. We aim to deliver top-quality,
-          comprehensive publication services to meet the diverse needs of researchers, academicians, and
-          professionals.
 
-        </p>
-        <p class="about-p">Since our inception, we have had the privilege of serving over 1,000 doctors,
-          scientists, and
-          researchers from various domains. At Professional Publication Services, we are committed to
-          supporting the academic and research community by providing reliable, high-quality, and professional
-          publication services.</p>
-        <div class="about-stats">
-          <div class="as-item">
-            <div class="as-num"><?= number_format($totalBooks) ?><sup>+</sup></div>
-            <div class="as-lbl">Books</div>
-          </div>
-          <div class="as-item">
-            <div class="as-num">1K<sup>+</sup></div>
-            <div class="as-lbl">Clients</div>
-          </div>
-          <div class="as-item">
-            <div class="as-num">6<sup>yr</sup></div>
-            <div class="as-lbl">Experience</div>
-          </div>
-        </div>
-        <a href="contact.php" class="btn-about">Get in Touch &nbsp;<i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- ══════════════════════════════════════════════
-   ABOUT  — replace your existing about-sec in index.php with this
-══════════════════════════════════════════════ -->
   <section class="about-sec">
     <div class="about-inner">
 

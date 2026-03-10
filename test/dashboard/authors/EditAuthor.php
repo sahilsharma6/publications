@@ -996,9 +996,9 @@ $initial = strtoupper(substr($author['name'], 0, 1));
                             <span class="lbl-hint">optional</span>
                         </label>
                         <textarea id="author_desc" name="description" class="form-input no-icon" rows="4"
-                            maxlength="2000"><?= htmlspecialchars($author['description'] ?? '', ENT_QUOTES) ?></textarea>
+                            maxlength="5000"><?= htmlspecialchars($author['description'] ?? '', ENT_QUOTES) ?></textarea>
                         <span class="char-count" id="descCount">
-                            <?= mb_strlen($author['description'] ?? '') ?> / 2000
+                            <?= mb_strlen($author['description'] ?? '') ?> / 5000
                         </span>
                     </div>
 
@@ -1127,7 +1127,7 @@ $initial = strtoupper(substr($author['name'], 0, 1));
                                 if ($currentBookId > 0) {
                                     foreach ($books as $b) {
                                         if ((int) $b['id'] === $currentBookId) {
-                                            echo htmlspecialchars($b['name'], ENT_QUOTES);
+                                            echo htmlspecialchars($b['title'], ENT_QUOTES);
                                             break;
                                         }
                                     }
@@ -1173,7 +1173,7 @@ $initial = strtoupper(substr($author['name'], 0, 1));
                 upd();
             }
             counter('author_name', 'nameCount', 120);
-            counter('author_desc', 'descCount', 2000);
+            counter('author_desc', 'descCount', 5000);
 
             /* ── Live preview update ─────────────────────── */
             const nameInput = document.getElementById('author_name');
