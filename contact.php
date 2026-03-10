@@ -5,8 +5,8 @@ session_start();
 $contactInfo = [
     // 'address' => '7895+7GR, Bhopal-Indore Highway Bhainsakhedi, Bairagarh, Bhopal, Madhya Pradesh 462030',
     'addresses' => [
-        'Bhopal Office' => '7895+7GR, Bhopal-Indore Highway Bhainsakhedi, Bairagarh, Bhopal, Madhya Pradesh 462030',
-        'Kanpur Office' => 'Naubasta, Galla Mandi, Kanpur, Uttar Pradesh',
+        'Madhya Pradesh Office' => '7895+7GR, Bhopal-Indore Highway Bhainsakhedi, Bairagarh, Bhopal, Madhya Pradesh 462030',
+        'Uttar Pradesh Office' => 'Naubasta, Galla Mandi, Kanpur, Uttar Pradesh',
         'West Bengal Office' => 'Bankura Town, Bankura, West Bengal'
     ],
     'phone' => '+91-8708299825, +91-9752747384, +91-9302423730',
