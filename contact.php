@@ -788,9 +788,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     hours.</p>
             </div>
             <div class="hero-quick">
-                <a href="tel:+918708299825" class="hq-link">
-                    <i class="fas fa-phone"></i> +91-8708299825
+                <a href="" class="hq-link">
+                    <i class="fas fa-phone"></i> +91-8708299825,
+                    +91-9302423730
                 </a>
+                <!-- <a href="tel:+918708299825" class="hq-link">
+                    <i class="fas fa-phone"></i>
+                </a> -->
                 <a href="mailto:<?= htmlspecialchars($contactInfo['email'], ENT_QUOTES) ?>" class="hq-link">
                     <i class="fas fa-envelope"></i> Email Us
                 </a>
