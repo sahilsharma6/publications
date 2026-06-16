@@ -7,3 +7,18 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{DOCUMENT_ROOT}/$1.php -f
 RewriteRule ^([^/]+)/?$ $1.php [L]
+
+# Persistent sessions (1000 days)
+
+<IfModule mod_php.c>
+    php_value session.cookie_lifetime 86400000
+    php_value session.gc_maxlifetime 86400000
+</IfModule>
+<IfModule mod_php7.c>
+    php_value session.cookie_lifetime 86400000
+    php_value session.gc_maxlifetime 86400000
+</IfModule>
+<IfModule mod_php8.c>
+    php_value session.cookie_lifetime 86400000
+    php_value session.gc_maxlifetime 86400000
+</IfModule>
