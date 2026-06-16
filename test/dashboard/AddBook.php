@@ -1264,7 +1264,10 @@ $conn->close();
             uploadZone?.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
             uploadZone?.addEventListener('drop', e => {
                 e.preventDefault(); uploadZone.classList.remove('drag-over');
-                if (e.dataTransfer.files[0]) showPreview(e.dataTransfer.files[0]);
+                if (e.dataTransfer.files[0]) {
+                    imgInput.files = e.dataTransfer.files;
+                    showPreview(e.dataTransfer.files[0]);
+                }
             });
 
             function showPreview(file) {
