@@ -23,12 +23,12 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
     || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 
+$script_directory = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+$pos = strpos($script_directory, '/test/dashboard');
+$base_path = ($pos !== false) ? substr($script_directory, 0, $pos) : '';
 
-$root_url = $protocol . $_SERVER['HTTP_HOST'] . '/test/dashboard/';
-
-// $root_url = 'http://localhost/book/test/dashboard/';
-
-// include "components/adminUrl.php";
+$home_url = $protocol . $_SERVER['HTTP_HOST'] . $base_path . '/';
+$root_url = $protocol . $_SERVER['HTTP_HOST'] . $base_path . '/test/dashboard/';
 
 
 
@@ -133,7 +133,7 @@ function navItem(string $icon, string $label, array $subLinks = [], string $curr
             ['href' => $root_url . 'Services.php', 'label' => 'Add Services'],
             ['href' => $root_url . 'add_logo.php', 'label' => 'Add Logo'],
             ['href' => $root_url . 'change_password.php', 'label' => 'Change Password'],
-            ['href' => 'https://professionalpublicationservice.com', 'label' => 'Home page '],
+            ['href' => $home_url, 'label' => 'Home page '],
 
         ], $currentPage); ?>
 
@@ -273,9 +273,8 @@ function navItem(string $icon, string $label, array $subLinks = [], string $curr
             <!-- <div class="topbar-badge">
                 <i class='bx bx-search'></i>
             </div> -->
-            <!-- Go to home page -->
             <div class="topbar-home">
-                <a href="https://professionalpublicationservice.com" style="color: inherit">
+                <a href="<?= $home_url ?>" style="color: inherit">
                     <i class='bx bx-home'></i>
                 </a>
             </div>

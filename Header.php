@@ -594,14 +594,14 @@ $userName = $_SESSION['username'] ?? 'Account';
 
     <div class="drawer-bottom">
         <?php if ($isLoggedIn): ?>
-            <a href="<?= $isAdmin ? './dashboard' : 'profile.php' ?>" class="drawer-link">
+            <a href="<?= $isAdmin ? './test/dashboard' : 'profile.php' ?>" class="drawer-link">
                 <i class="fas fa-user-circle"></i>
                 <span class="dlbl">
                     <?= htmlspecialchars($userName) ?>
                 </span>
             </a>
             <div class="drawer-divider"></div>
-            <a href="../logout.php" class="btn-drawer-login" style="background:#333;">
+            <a href="./logout.php" class="btn-drawer-login" style="background:#333;">
                 <i class="fas fa-sign-out-alt"></i> Logout
             </a>
         <?php else: ?>
